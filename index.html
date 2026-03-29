@@ -4,7 +4,13 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>VITACARE | Clínica de Rehabilitación en CABA</title>
-<meta name="description" content="VITACARE — Clínica de rehabilitación en CABA con 12 consultorios. Kinesiología, fisiatría, rehabilitación postquirúrgica y neurológica. Pedí tu turno hoy."/>
+<meta name="description" content="VITACARE — Clínica de rehabilitación de alta complejidad en CABA con 12 consultorios. Especialistas en kinesiología, fisiatría, rehabilitación postquirúrgica y neurológica."/>
+<meta name="keywords" content="kinesiologia, fisiatria, rehabilitacion, clinica, CABA, traumatologia, neurologia, recuperacion deportiva, postquirurgica" />
+<meta property="og:title" content="VITACARE | Clínica de Rehabilitación en CABA" />
+<meta property="og:description" content="Centro de kinesiología y rehabilitación médica premium. Profesionales de la salud comprometidos con tu recuperación." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://vitacare.com.ar" />
+<meta property="og:image" content="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1200" />
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
@@ -60,23 +66,35 @@ tailwind.config = {
   .glass-nav { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
   .asymmetric-hero { clip-path: polygon(0 0, 100% 0, 100% 88%, 0% 100%); }
   .ambient-shadow { box-shadow: 0 16px 32px rgba(25,28,29,0.04); }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
   @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
   @keyframes pulseCTA { 0%,100%{ box-shadow:0 0 0 0 rgba(0,86,19,.4);} 50%{ box-shadow:0 0 0 10px rgba(0,86,19,0);} }
+  @keyframes floatIn { from { opacity:0; transform:translateY(16px) scale(0.97); } to { opacity:1; transform:translateY(0) scale(1); } }
+  @keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
   .hero-a1{animation:fadeUp .7s .1s ease both}
   .hero-a2{animation:fadeUp .7s .25s ease both}
   .hero-a3{animation:fadeUp .7s .4s ease both}
   .hero-a4{animation:fadeUp .7s .55s ease both}
   .pulse-cta{animation:pulseCTA 2.5s infinite}
-  .wa-float{position:fixed;bottom:1.75rem;right:1.75rem;z-index:999;display:flex;align-items:center;gap:.65rem;background:#005613;color:#a3f69c;padding:.85rem 1.5rem;border-radius:9999px;font-family:'Manrope',sans-serif;font-weight:800;font-size:.92rem;text-decoration:none;box-shadow:0 8px 32px rgba(0,86,19,.5);transition:all .25s;}
-  .wa-float:hover{transform:translateY(-3px) scale(1.03);box-shadow:0 12px 40px rgba(0,86,19,.65);}
-  .card-hover{transition:transform .35s ease,box-shadow .35s ease;}
-  .card-hover:hover{transform:translateY(-6px);box-shadow:0 20px 48px rgba(25,28,29,.10);}
+  .wa-float{position:fixed;bottom:1.75rem;right:1.75rem;z-index:999;display:flex;align-items:center;gap:.5rem;background:#005613;color:#a3f69c;padding:.75rem 1.25rem;border-radius:9999px;font-family:'Manrope',sans-serif;font-weight:800;font-size:.85rem;text-decoration:none;box-shadow:0 6px 24px rgba(0,86,19,.45);transition:all .3s cubic-bezier(.4,0,.2,1);opacity:.9;}
+  .wa-float:hover{transform:translateY(-3px) scale(1.04);box-shadow:0 12px 40px rgba(0,86,19,.65);opacity:1;}
+  .wa-float .wa-label{max-width:160px;overflow:hidden;transition:max-width .3s ease,opacity .3s ease;white-space:nowrap;}
+  .card-hover{transition:transform .4s cubic-bezier(.4,0,.2,1),box-shadow .4s cubic-bezier(.4,0,.2,1);}
+  .card-hover:hover{transform:translateY(-8px);box-shadow:0 20px 48px rgba(25,28,29,.12);}
   .img-zoom img{transition:transform .6s ease;}
   .img-zoom:hover img{transform:scale(1.06);}
-  #mobileMenu{transition:transform .35s ease;transform:translateX(100%);}
+  #mobileMenu{transition:transform .35s cubic-bezier(.4,0,.2,1);transform:translateX(100%);}
   #mobileMenu.open{transform:translateX(0);}
   select,input,textarea{appearance:none;}
+  .nav-link{position:relative;}
+  .nav-link::after{content:'';position:absolute;bottom:0;left:50%;width:0;height:2px;background:linear-gradient(90deg,#003461,#24657e);border-radius:1px;transition:all .3s ease;transform:translateX(-50%);}
+  .nav-link:hover::after,.nav-link.active::after{width:70%;}
+  .section-reveal{opacity:0;transform:translateY(32px);transition:opacity .7s cubic-bezier(.4,0,.2,1),transform .7s cubic-bezier(.4,0,.2,1);}
+  .section-reveal.revealed{opacity:1;transform:translateY(0);}
+  .stat-counter{display:inline-block;}
+  .nav-scrolled{box-shadow:0 4px 24px rgba(25,28,29,.1) !important;background:rgba(255,255,255,.95) !important;}
+  .gradient-divider{height:3px;background:linear-gradient(90deg,transparent,#004b87,#24657e,transparent);border-radius:2px;}
+  .form-success{animation:floatIn .4s ease both;}
 </style>
 </head>
 <body class="bg-surface font-body text-on-surface overflow-x-hidden">
@@ -85,12 +103,12 @@ tailwind.config = {
 <div class="bg-primary hidden md:flex">
   <div class="max-w-7xl mx-auto w-full px-6 py-2.5 flex justify-between items-center text-xs font-body font-medium text-primary-fixed">
     <div class="flex gap-6">
-      <span class="flex items-center gap-1.5"><span class="material-symbols-outlined fill-icon" style="font-size:14px">location_on</span>Ciudad Autónoma de Buenos Aires</span>
+      <span class="flex items-center gap-1.5"><span class="material-symbols-outlined fill-icon" style="font-size:14px">location_on</span>Lavalle 362, Piso 8 · CABA</span>
       <span class="flex items-center gap-1.5"><span class="material-symbols-outlined" style="font-size:14px">schedule</span>Lun–Vie 8:00–20:00 · Sáb 9:00–14:00</span>
     </div>
     <div class="flex gap-6">
       <a href="tel:+541144556677" class="flex items-center gap-1.5 hover:text-white transition-colors"><span class="material-symbols-outlined fill-icon" style="font-size:14px">call</span>(011) 4455-6677</a>
-      <a href="/cdn-cgi/l/email-protection#345c5b585574425d4055575546511a575b591a5546" class="flex items-center gap-1.5 hover:text-white transition-colors"><span class="material-symbols-outlined fill-icon" style="font-size:14px">mail</span><span class="__cf_email__" data-cfemail="355d5a595475435c4154565447501b565a581b5447">[email&#160;protected]</span></a>
+      <a href="mailto:info@vitacare.com.ar" class="flex items-center gap-1.5 hover:text-white transition-colors"><span class="material-symbols-outlined fill-icon" style="font-size:14px">mail</span>info@vitacare.com.ar</a>
     </div>
   </div>
 </div>
@@ -104,13 +122,13 @@ tailwind.config = {
       </div>
       <span class="font-headline font-black text-2xl text-primary tracking-tight">VITA<span class="text-secondary">CARE</span></span>
     </a>
-    <div class="hidden md:flex items-center gap-0.5">
-      <a href="#servicios" class="px-3.5 py-2 rounded-xl text-[13px] font-headline font-semibold text-[#424750] hover:text-primary hover:bg-[#f3f4f5] transition-all">Servicios</a>
-      <a href="#como-trabajamos" class="px-3.5 py-2 rounded-xl text-[13px] font-headline font-semibold text-[#424750] hover:text-primary hover:bg-[#f3f4f5] transition-all">Proceso</a>
-      <a href="#equipo" class="px-3.5 py-2 rounded-xl text-[13px] font-headline font-semibold text-[#424750] hover:text-primary hover:bg-[#f3f4f5] transition-all">Equipo</a>
-      <a href="#coberturas" class="px-3.5 py-2 rounded-xl text-[13px] font-headline font-semibold text-[#424750] hover:text-primary hover:bg-[#f3f4f5] transition-all">Coberturas</a>
-      <a href="#nosotros" class="px-3.5 py-2 rounded-xl text-[13px] font-headline font-semibold text-[#424750] hover:text-primary hover:bg-[#f3f4f5] transition-all">Nosotros</a>
-      <a href="#contacto" class="px-3.5 py-2 rounded-xl text-[13px] font-headline font-semibold text-[#424750] hover:text-primary hover:bg-[#f3f4f5] transition-all">Contacto</a>
+    <div class="hidden md:flex items-center gap-1">
+      <a href="#servicios" class="nav-link px-3.5 py-2 rounded-xl text-sm font-headline font-semibold text-[#2e3132] hover:text-primary hover:bg-primary/5 transition-all">Servicios</a>
+      <a href="#como-trabajamos" class="nav-link px-3.5 py-2 rounded-xl text-sm font-headline font-semibold text-[#2e3132] hover:text-primary hover:bg-primary/5 transition-all">Proceso</a>
+      <a href="#equipo" class="nav-link px-3.5 py-2 rounded-xl text-sm font-headline font-semibold text-[#2e3132] hover:text-primary hover:bg-primary/5 transition-all">Equipo</a>
+      <a href="#coberturas" class="nav-link px-3.5 py-2 rounded-xl text-sm font-headline font-semibold text-[#2e3132] hover:text-primary hover:bg-primary/5 transition-all">Coberturas</a>
+      <a href="#nosotros" class="nav-link px-3.5 py-2 rounded-xl text-sm font-headline font-semibold text-[#2e3132] hover:text-primary hover:bg-primary/5 transition-all">Nosotros</a>
+      <a href="#contacto" class="nav-link px-3.5 py-2 rounded-xl text-sm font-headline font-semibold text-[#2e3132] hover:text-primary hover:bg-primary/5 transition-all">Contacto</a>
     </div>
     <div class="hidden md:flex items-center gap-3 shrink-0">
       <a href="https://wa.me/5491144556677" target="_blank" class="flex items-center gap-2 bg-[#005613] text-[#a3f69c] px-5 py-2.5 rounded-xl font-headline font-bold text-[13px] hover:opacity-90 hover:scale-105 transition-all">
@@ -181,10 +199,10 @@ tailwind.config = {
         </a>
       </div>
       <div class="hero-a4 flex flex-wrap gap-8 pt-8 border-t border-white/15">
-        <div><div class="font-headline font-extrabold text-3xl text-white leading-none">12</div><div class="text-[#d3e4ff] text-sm mt-1">Consultorios</div></div>
-        <div><div class="font-headline font-extrabold text-3xl text-white leading-none">+10</div><div class="text-[#d3e4ff] text-sm mt-1">Especialidades</div></div>
-        <div><div class="font-headline font-extrabold text-3xl text-white leading-none">CABA</div><div class="text-[#d3e4ff] text-sm mt-1">Buenos Aires</div></div>
-        <div><div class="font-headline font-extrabold text-3xl text-white leading-none">100%</div><div class="text-[#d3e4ff] text-sm mt-1">Personalizado</div></div>
+        <div><div class="font-headline font-extrabold text-3xl text-white leading-none stat-counter" data-count="12">0</div><div class="text-[#d3e4ff] text-sm mt-1">Consultorios</div></div>
+        <div><div class="font-headline font-extrabold text-3xl text-white leading-none">+<span class="stat-counter" data-count="10">0</span></div><div class="text-[#d3e4ff] text-sm mt-1">Especialidades</div></div>
+        <div><div class="font-headline font-extrabold text-3xl text-white leading-none stat-counter" data-count="CABA">CABA</div><div class="text-[#d3e4ff] text-sm mt-1">Buenos Aires</div></div>
+        <div><div class="font-headline font-extrabold text-3xl text-white leading-none"><span class="stat-counter" data-count="100" data-suffix="%">0%</span></div><div class="text-[#d3e4ff] text-sm mt-1">Personalizado</div></div>
       </div>
     </div>
 
@@ -253,6 +271,31 @@ tailwind.config = {
         </div>
         <div><div class="text-[10px] text-[#424750] font-semibold uppercase tracking-wider">Llamanos</div><div class="text-sm font-headline font-bold text-on-surface">(011) 4455-6677</div></div>
       </a>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST BAR / AFILIACIONES -->
+<div class="bg-white py-10 border-b border-[#c2c6d1]/25 section-reveal">
+  <div class="max-w-7xl mx-auto px-6">
+    <p class="text-center text-xs font-headline font-bold text-[#424750] tracking-widest uppercase mb-8">Confían en nosotros y nos avalan</p>
+    <div class="flex flex-wrap justify-center items-center gap-10 md:gap-20 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary" style="font-size:2.5rem">health_and_safety</span>
+        <span class="font-headline font-bold text-sm leading-tight text-[#424750]">Ministerio<br>de Salud</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary" style="font-size:2.5rem">verified</span>
+        <span class="font-headline font-bold text-sm leading-tight text-[#424750]">Certificación<br>ISO 9001</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary" style="font-size:2.5rem">group</span>
+        <span class="font-headline font-bold text-sm leading-tight text-[#424750]">Asociación Arg.<br>de Kinesiología</span>
+      </div>
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-primary" style="font-size:2.5rem">stars</span>
+        <span class="font-headline font-bold text-sm leading-tight text-[#424750]">Centro de<br>Excelencia 2026</span>
+      </div>
     </div>
   </div>
 </div>
@@ -377,10 +420,77 @@ tailwind.config = {
   </div>
 </section>
 
+<!-- INSTALACIONES 3D -->
+<section class="py-28 bg-white" id="instalaciones">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="mb-14 flex flex-col md:flex-row md:items-end md:justify-between gap-6 section-reveal">
+      <div>
+        <div class="flex items-center gap-2 text-secondary font-headline font-bold text-xs tracking-widest uppercase mb-3"><div class="w-6 h-px bg-secondary"></div>Conocé los espacios</div>
+        <h2 class="font-headline font-extrabold text-primary tracking-tight" style="font-size:clamp(1.9rem,3.5vw,2.8rem)">Nuestras Instalaciones</h2>
+      </div>
+      <p class="text-[#424750] max-w-sm text-sm leading-relaxed">Entornos pensados exclusivamente para tu recuperación, con equipamiento de primer nivel.</p>
+    </div>
+
+    <!-- Layout Instalaciones -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <!-- Consultorio 5m2 (Optimizado) -->
+      <div class="group rounded-3xl overflow-hidden bg-[#f3f4f5] border border-[#c2c6d1]/30 hover:border-primary/30 transition-all card-hover section-reveal relative">
+        <div class="absolute top-4 left-4 z-10 bg-white/90 glass-nav px-3 py-1.5 rounded-full text-xs font-bold text-primary shadow-sm flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-amber-500" style="font-size:16px;font-variation-settings:'FILL' 1;">3d_rotation</span> Vista 3D (Simulación)
+        </div>
+        <div class="h-[340px] overflow-hidden relative">
+          <!-- Uso un Unsplash temporal representativo de un box chico (5m2) médico -->
+          <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1200" alt="Consultorio Kinesiología 5m2" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+        </div>
+        <div class="p-8">
+          <h3 class="font-headline font-bold text-2xl text-on-surface mb-3 flex items-center gap-2">Consultorio Privado <span class="text-secondary text-sm font-medium bg-[#a6e2ff]/30 px-2.5 py-1 rounded-md">5 m²</span></h3>
+          <p class="text-[#424750] text-sm leading-relaxed">Boxes individuales de 5 metros cuadrados altamente optimizados. Diseñados para brindar privacidad, silencio y la atención médica personalizada (1 a 1) que necesitás, dotados de camilla terapéutica y equipamiento esencial.</p>
+        </div>
+      </div>
+
+      <!-- Gimnasio Rehab -->
+      <div class="group rounded-3xl overflow-hidden bg-[#f3f4f5] border border-[#c2c6d1]/30 hover:border-primary/30 transition-all card-hover section-reveal relative" style="transition-delay: 150ms;">
+        <div class="absolute top-4 left-4 z-10 bg-white/90 glass-nav px-3 py-1.5 rounded-full text-xs font-bold text-primary shadow-sm flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-amber-500" style="font-size:16px;font-variation-settings:'FILL' 1;">3d_rotation</span> Vista 3D (Simulación)
+        </div>
+        <div class="h-[340px] overflow-hidden relative">
+          <img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=1200" alt="Gimnasio de Rehabilitación 9m2" class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105" />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+        </div>
+        <div class="p-8">
+          <h3 class="font-headline font-bold text-2xl text-on-surface mb-3 flex items-center gap-2">Gimnasio Terapéutico <span class="text-secondary text-sm font-medium bg-[#a6e2ff]/30 px-2.5 py-1 rounded-md">9 m²</span></h3>
+          <p class="text-[#424750] text-sm leading-relaxed">Espacio de 9 metros cuadrados, súper compacto y funcional. Equipado estratégicamente con elementos de entrenamiento, zonas de suspensión y accesorios primordiales para las fases activas y personalizadas de tu rehabilitación.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- TESTIMONIALS -->
 <section class="py-28 bg-[#f3f4f5]">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="mb-14"><div class="flex items-center gap-2 text-secondary font-headline font-bold text-xs tracking-widest uppercase mb-3"><div class="w-6 h-px bg-secondary"></div>Testimonios</div><h2 class="font-headline font-extrabold text-primary tracking-tight" style="font-size:clamp(1.9rem,3.5vw,2.8rem)">Lo que dicen nuestros pacientes</h2></div>
+    <div class="mb-14 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+      <div>
+        <div class="flex items-center gap-2 text-secondary font-headline font-bold text-xs tracking-widest uppercase mb-3"><div class="w-6 h-px bg-secondary"></div>Testimonios</div>
+        <h2 class="font-headline font-extrabold text-primary tracking-tight" style="font-size:clamp(1.9rem,3.5vw,2.8rem)">Lo que dicen nuestros pacientes</h2>
+      </div>
+      <div class="bg-white px-5 py-3 rounded-xl flex items-center gap-4 section-reveal" style="box-shadow:0 4px 16px rgba(25,28,29,.05)">
+        <div class="w-12 h-12 rounded-full flex items-center justify-center shrink-0">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="40px" height="40px"><path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/><path fill="#FF3D00" d="m6.306 14.691 6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"/><path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238C29.211 35.091 26.715 36 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/><path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303c-.792 2.237-2.231 4.166-4.087 5.571-.008-.005-.016-.01-.023-.015l6.19 5.238C40.916 34.616 44 29.742 44 24c0-1.341-.138-2.65-.389-3.917z"/></svg>
+        </div>
+        <div>
+          <div class="flex items-center gap-1 text-amber-400 text-sm">
+            <span class="material-symbols-outlined" style="font-size:16px;font-variation-settings:'FILL' 1">star</span>
+            <span class="material-symbols-outlined" style="font-size:16px;font-variation-settings:'FILL' 1">star</span>
+            <span class="material-symbols-outlined" style="font-size:16px;font-variation-settings:'FILL' 1">star</span>
+            <span class="material-symbols-outlined" style="font-size:16px;font-variation-settings:'FILL' 1">star</span>
+            <span class="material-symbols-outlined" style="font-size:16px;font-variation-settings:'FILL' 1">star_half</span>
+          </div>
+          <div class="font-headline font-bold text-on-surface text-sm mt-1">4.9/5 <span class="text-[#424750] font-normal text-xs ml-1">en 250+ reseñas</span></div>
+        </div>
+      </div>
+    </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
       <div class="bg-white rounded-2xl p-7 card-hover flex flex-col gap-5">
         <div class="text-amber-400 tracking-widest text-sm">★★★★★</div>
@@ -418,10 +528,10 @@ tailwind.config = {
       <p class="text-[#424750] max-w-sm text-sm leading-relaxed">Profesionales de excelencia con formación especializada y vocación de servicio.</p>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-      <div class="bg-white rounded-2xl overflow-hidden card-hover"><div class="h-44 bg-gradient-to-br from-[#f3f4f5] to-[#edeeef] flex items-center justify-center"><span class="material-symbols-outlined fill-icon text-primary" style="font-size:5rem">person</span></div><div class="p-6"><div class="inline-flex items-center px-2.5 py-1 bg-[#a6e2ff] rounded-full text-[#24667f] font-headline font-bold text-xs tracking-wide mb-3">Fisiatra</div><h4 class="font-headline font-bold text-on-surface text-base mb-2">Dr. [Nombre Apellido]</h4><p class="text-[#424750] text-xs leading-relaxed">Médico fisiatra especializado en diagnóstico y tratamiento de patologías musculoesqueléticas y neurológicas.</p></div></div>
-      <div class="bg-white rounded-2xl overflow-hidden card-hover"><div class="h-44 bg-gradient-to-br from-[#f3f4f5] to-[#edeeef] flex items-center justify-center"><span class="material-symbols-outlined fill-icon text-secondary" style="font-size:5rem">person</span></div><div class="p-6"><div class="inline-flex items-center px-2.5 py-1 bg-[#a6e2ff] rounded-full text-[#24667f] font-headline font-bold text-xs tracking-wide mb-3">Kinesióloga</div><h4 class="font-headline font-bold text-on-surface text-base mb-2">Lic. [Nombre Apellido]</h4><p class="text-[#424750] text-xs leading-relaxed">Especialista en rehabilitación postquirúrgica y dolor crónico, con enfoque en recuperación funcional.</p></div></div>
-      <div class="bg-white rounded-2xl overflow-hidden card-hover"><div class="h-44 bg-gradient-to-br from-[#f3f4f5] to-[#edeeef] flex items-center justify-center"><span class="material-symbols-outlined fill-icon text-primary" style="font-size:5rem">person</span></div><div class="p-6"><div class="inline-flex items-center px-2.5 py-1 bg-[#a6e2ff] rounded-full text-[#24667f] font-headline font-bold text-xs tracking-wide mb-3">Kinesiólogo</div><h4 class="font-headline font-bold text-on-surface text-base mb-2">Lic. [Nombre Apellido]</h4><p class="text-[#424750] text-xs leading-relaxed">Experto en rehabilitación neurológica: ACV, Parkinson y patologías neuromusculares.</p></div></div>
-      <div class="bg-white rounded-2xl overflow-hidden card-hover"><div class="h-44 bg-gradient-to-br from-[#f3f4f5] to-[#edeeef] flex items-center justify-center"><span class="material-symbols-outlined fill-icon text-secondary" style="font-size:5rem">person</span></div><div class="p-6"><div class="inline-flex items-center px-2.5 py-1 bg-[#a6e2ff] rounded-full text-[#24667f] font-headline font-bold text-xs tracking-wide mb-3">Terapista Ocupacional</div><h4 class="font-headline font-bold text-on-surface text-base mb-2">Lic. [Nombre Apellido]</h4><p class="text-[#424750] text-xs leading-relaxed">Enfocada en la recuperación de autonomía funcional y reintegración a las actividades cotidianas.</p></div></div>
+      <div class="bg-white rounded-2xl overflow-hidden card-hover img-zoom"><div class="h-56 bg-gradient-to-br from-[#f3f4f5] to-[#edeeef] overflow-hidden"><img src="img/doctor_fisiatra.png" alt="Dr. Fisiatra - VITACARE" class="w-full h-full object-cover object-top"/></div><div class="p-6"><div class="inline-flex items-center px-2.5 py-1 bg-[#a6e2ff] rounded-full text-[#24667f] font-headline font-bold text-xs tracking-wide mb-3">Fisiatra</div><h4 class="font-headline font-bold text-on-surface text-base mb-2">Dr. [Nombre Apellido]</h4><p class="text-[#424750] text-xs leading-relaxed">Médico fisiatra especializado en diagnóstico y tratamiento de patologías musculoesqueléticas y neurológicas.</p></div></div>
+      <div class="bg-white rounded-2xl overflow-hidden card-hover img-zoom"><div class="h-56 bg-gradient-to-br from-[#f3f4f5] to-[#edeeef] overflow-hidden"><img src="img/kinesiologista_mujer.png" alt="Lic. Kinesióloga - VITACARE" class="w-full h-full object-cover object-top"/></div><div class="p-6"><div class="inline-flex items-center px-2.5 py-1 bg-[#a6e2ff] rounded-full text-[#24667f] font-headline font-bold text-xs tracking-wide mb-3">Kinesióloga</div><h4 class="font-headline font-bold text-on-surface text-base mb-2">Lic. [Nombre Apellido]</h4><p class="text-[#424750] text-xs leading-relaxed">Especialista en rehabilitación postquirúrgica y dolor crónico, con enfoque en recuperación funcional.</p></div></div>
+      <div class="bg-white rounded-2xl overflow-hidden card-hover img-zoom"><div class="h-56 bg-gradient-to-br from-[#f3f4f5] to-[#edeeef] overflow-hidden"><img src="img/kinesiologo_hombre.png" alt="Lic. Kinesiólogo - VITACARE" class="w-full h-full object-cover object-top"/></div><div class="p-6"><div class="inline-flex items-center px-2.5 py-1 bg-[#a6e2ff] rounded-full text-[#24667f] font-headline font-bold text-xs tracking-wide mb-3">Kinesiólogo</div><h4 class="font-headline font-bold text-on-surface text-base mb-2">Lic. [Nombre Apellido]</h4><p class="text-[#424750] text-xs leading-relaxed">Experto en rehabilitación neurológica: ACV, Parkinson y patologías neuromusculares.</p></div></div>
+      <div class="bg-white rounded-2xl overflow-hidden card-hover img-zoom"><div class="h-56 bg-gradient-to-br from-[#f3f4f5] to-[#edeeef] overflow-hidden"><img src="img/terapista_ocupacional.png" alt="Lic. Terapista Ocupacional - VITACARE" class="w-full h-full object-cover object-top"/></div><div class="p-6"><div class="inline-flex items-center px-2.5 py-1 bg-[#a6e2ff] rounded-full text-[#24667f] font-headline font-bold text-xs tracking-wide mb-3">Terapista Ocupacional</div><h4 class="font-headline font-bold text-on-surface text-base mb-2">Lic. [Nombre Apellido]</h4><p class="text-[#424750] text-xs leading-relaxed">Enfocada en la recuperación de autonomía funcional y reintegración a las actividades cotidianas.</p></div></div>
     </div>
   </div>
 </section>
@@ -449,6 +559,49 @@ tailwind.config = {
       <div class="bg-primary rounded-xl h-20 flex items-center justify-center"><span class="font-headline font-bold text-white text-sm">PARTICULAR</span></div>
     </div>
     <p class="text-center text-[#424750] text-sm">¿No encontrás tu cobertura? <a href="https://wa.me/5491144556677" class="text-primary font-bold underline">Consultanos por WhatsApp</a></p>
+  </div>
+</section>
+
+<!-- FAQ / PREGUNTAS FRECUENTES -->
+<section class="py-24 px-6 bg-white" id="faq">
+  <div class="max-w-4xl mx-auto">
+    <div class="text-center mb-14 section-reveal">
+      <div class="flex items-center justify-center gap-2 text-secondary font-headline font-bold text-xs tracking-widest uppercase mb-3"><div class="w-6 h-px bg-secondary"></div>Dudas habituales<div class="w-6 h-px bg-secondary"></div></div>
+      <h2 class="font-headline font-extrabold text-primary tracking-tight" style="font-size:clamp(1.9rem,3.5vw,2.8rem)">Preguntas Frecuentes</h2>
+    </div>
+    
+    <div class="space-y-4 section-reveal">
+      <!-- FAQ Item 1 -->
+      <div class="border border-[#c2c6d1]/40 rounded-2xl overflow-hidden bg-white hover:border-[#a6e2ff] transition-colors faq-item">
+        <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+          <span class="font-headline font-bold text-on-surface text-lg">¿Necesito orden médica para iniciar el tratamiento?</span>
+          <span class="material-symbols-outlined text-secondary transition-transform duration-300 faq-icon">expand_more</span>
+        </button>
+        <div class="px-6 pb-5 pt-0 text-[#424750] text-sm leading-relaxed hidden faq-content">
+          Sí, para admisiones por obra social o prepaga es requisito indispensable contar con la derivación médica u orden (con diagnóstico y cantidad de sesiones) emitida por tu médico tratante, junto con los estudios complementarios si los hubiera.
+        </div>
+      </div>
+      <!-- FAQ Item 2 -->
+      <div class="border border-[#c2c6d1]/40 rounded-2xl overflow-hidden bg-white hover:border-[#a6e2ff] transition-colors faq-item">
+        <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+          <span class="font-headline font-bold text-on-surface text-lg">¿Cuánto dura aproximadamente cada sesión?</span>
+          <span class="material-symbols-outlined text-secondary transition-transform duration-300 faq-icon">expand_more</span>
+        </button>
+        <div class="px-6 pb-5 pt-0 text-[#424750] text-sm leading-relaxed hidden faq-content">
+          Una sesión estándar de kinesiología o rehabilitación tiene una duración promedio de 45 a 60 minutos. Este tiempo puede variar ligeramente dependiendo de la patología y del plan de tratamiento específico diseñado por el profesional.
+        </div>
+      </div>
+      <!-- FAQ Item 3 -->
+      <div class="border border-[#c2c6d1]/40 rounded-2xl overflow-hidden bg-white hover:border-[#a6e2ff] transition-colors faq-item">
+        <button class="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none" onclick="toggleFaq(this)">
+          <span class="font-headline font-bold text-on-surface text-lg">¿Qué ropa debo usar para asistir a rehabilitación?</span>
+          <span class="material-symbols-outlined text-secondary transition-transform duration-300 faq-icon">expand_more</span>
+        </button>
+        <div class="px-6 pb-5 pt-0 text-[#424750] text-sm leading-relaxed hidden faq-content">
+          Te recomendamos asistir con ropa cómoda, deportiva o suelta que no limite tus movimientos y permita acceder fácilmente al área a tratar (por ejemplo, pantalones cortos si es lesión de rodilla).
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -488,53 +641,53 @@ tailwind.config = {
         <h2 class="font-headline font-extrabold text-white tracking-tight mb-4" style="font-size:clamp(1.9rem,3.5vw,2.8rem)">Estamos para<br/>ayudarte</h2>
         <p class="text-[#d3e4ff] text-sm leading-relaxed mb-10 max-w-md">Comunicate con nosotros para solicitar un turno, resolver dudas sobre tu cobertura o conocer más sobre nuestros servicios.</p>
         <div class="flex flex-col gap-5 mb-8">
-          <div class="flex items-start gap-4"><div class="w-11 h-11 rounded-xl bg-white/12 flex items-center justify-center shrink-0"><span class="material-symbols-outlined fill-icon text-[#a6e2ff]">location_on</span></div><div><div class="text-[#a6e2ff] text-[10px] font-semibold uppercase tracking-wider mb-1">Dirección</div><div class="text-white text-sm font-semibold">Palermo, Ciudad Autónoma de Buenos Aires</div></div></div>
+          <div class="flex items-start gap-4"><div class="w-11 h-11 rounded-xl bg-white/12 flex items-center justify-center shrink-0"><span class="material-symbols-outlined fill-icon text-[#a6e2ff]">location_on</span></div><div><div class="text-[#a6e2ff] text-[10px] font-semibold uppercase tracking-wider mb-1">Dirección</div><div class="text-white text-sm font-semibold">Lavalle 362, Piso 8 · Ciudad Autónoma de Buenos Aires</div></div></div>
           <div class="flex items-start gap-4"><div class="w-11 h-11 rounded-xl bg-white/12 flex items-center justify-center shrink-0"><span class="material-symbols-outlined fill-icon text-[#a6e2ff]">call</span></div><div><div class="text-[#a6e2ff] text-[10px] font-semibold uppercase tracking-wider mb-1">Teléfono</div><a href="tel:+541144556677" class="text-white text-sm font-semibold hover:text-[#a6e2ff] transition-colors">(011) 4455-6677</a></div></div>
           <div class="flex items-start gap-4"><div class="w-11 h-11 rounded-xl bg-white/12 flex items-center justify-center shrink-0"><span class="material-symbols-outlined fill-icon text-[#a6e2ff]">chat</span></div><div><div class="text-[#a6e2ff] text-[10px] font-semibold uppercase tracking-wider mb-1">WhatsApp</div><a href="https://wa.me/5491144556677" target="_blank" class="text-white text-sm font-semibold hover:text-[#a6e2ff] transition-colors">+54 9 11 4455-6677</a></div></div>
-          <div class="flex items-start gap-4"><div class="w-11 h-11 rounded-xl bg-white/12 flex items-center justify-center shrink-0"><span class="material-symbols-outlined fill-icon text-[#a6e2ff]">mail</span></div><div><div class="text-[#a6e2ff] text-[10px] font-semibold uppercase tracking-wider mb-1">Email</div><a href="/cdn-cgi/l/email-protection#234b4c4f4263554a5742404251460d404c4e0d4251" class="text-white text-sm font-semibold hover:text-[#a6e2ff] transition-colors"><span class="__cf_email__" data-cfemail="6f0700030e2f19061b0e0c0e1d0a410c0002410e1d">[email&#160;protected]</span></a></div></div>
+          <div class="flex items-start gap-4"><div class="w-11 h-11 rounded-xl bg-white/12 flex items-center justify-center shrink-0"><span class="material-symbols-outlined fill-icon text-[#a6e2ff]">mail</span></div><div><div class="text-[#a6e2ff] text-[10px] font-semibold uppercase tracking-wider mb-1">Email</div><a href="mailto:info@vitacare.com.ar" class="text-white text-sm font-semibold hover:text-[#a6e2ff] transition-colors">info@vitacare.com.ar</a></div></div>
           <div class="flex items-start gap-4"><div class="w-11 h-11 rounded-xl bg-white/12 flex items-center justify-center shrink-0"><span class="material-symbols-outlined fill-icon text-[#a6e2ff]">schedule</span></div><div><div class="text-[#a6e2ff] text-[10px] font-semibold uppercase tracking-wider mb-1">Horarios</div><div class="text-white text-sm font-semibold">Lun–Vie 8:00–20:00 · Sáb 9:00–14:00</div></div></div>
         </div>
-        <a href="https://maps.google.com/?q=Palermo,CABA,Argentina" target="_blank" class="flex items-center justify-center gap-3 bg-white/10 border border-white/20 rounded-2xl h-36 hover:bg-white/15 transition-all group">
+        <a href="https://maps.google.com/?q=Lavalle+362+CABA+Argentina" target="_blank" class="flex items-center justify-center gap-3 bg-white/10 border border-white/20 rounded-2xl h-36 hover:bg-white/15 transition-all group">
           <span class="material-symbols-outlined fill-icon text-white text-4xl group-hover:scale-110 transition-transform">map</span>
-          <div><div class="text-white font-headline font-bold">Ver en Google Maps</div><div class="text-[#d3e4ff] text-xs">Palermo · Ciudad de Buenos Aires</div></div>
+          <div><div class="text-white font-headline font-bold">Ver en Google Maps</div><div class="text-[#d3e4ff] text-xs">Lavalle 362, Piso 8 · CABA</div></div>
         </a>
       </div>
 
       <!-- FORM -->
-      <div class="bg-white rounded-3xl p-8" style="box-shadow:0 24px 48px rgba(25,28,29,.12)">
+      <form class="bg-white rounded-3xl p-8" style="box-shadow:0 24px 48px rgba(25,28,29,.12)" onsubmit="event.preventDefault(); handleForm(this.querySelector('button[type=submit]'));">
         <h3 class="font-headline font-bold text-primary text-xl mb-1">Solicitar turno o consulta</h3>
         <p class="text-[#424750] text-sm mb-7">Completá el formulario y te contactamos en menos de 24hs hábiles.</p>
         <div class="grid grid-cols-2 gap-4 mb-4">
-          <div><label class="block text-[10px] font-semibold text-[#424750] uppercase tracking-wider mb-2">Nombre</label><input type="text" placeholder="Tu nombre" class="w-full px-4 py-3 rounded-xl bg-[#e7e8e9] border-0 text-[#191c1d] text-sm placeholder-[#727781] focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all"/></div>
-          <div><label class="block text-[10px] font-semibold text-[#424750] uppercase tracking-wider mb-2">Apellido</label><input type="text" placeholder="Tu apellido" class="w-full px-4 py-3 rounded-xl bg-[#e7e8e9] border-0 text-[#191c1d] text-sm placeholder-[#727781] focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all"/></div>
+          <div><label class="block text-[10px] font-semibold text-[#424750] uppercase tracking-wider mb-2">Nombre</label><input type="text" name="nombre" required placeholder="Tu nombre" class="w-full px-4 py-3 rounded-xl bg-[#e7e8e9] border-0 text-[#191c1d] text-sm placeholder-[#727781] focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all"/></div>
+          <div><label class="block text-[10px] font-semibold text-[#424750] uppercase tracking-wider mb-2">Apellido</label><input type="text" name="apellido" required placeholder="Tu apellido" class="w-full px-4 py-3 rounded-xl bg-[#e7e8e9] border-0 text-[#191c1d] text-sm placeholder-[#727781] focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all"/></div>
         </div>
-        <div class="mb-4"><label class="block text-[10px] font-semibold text-[#424750] uppercase tracking-wider mb-2">Email</label><input type="email" placeholder="tu@email.com" class="w-full px-4 py-3 rounded-xl bg-[#e7e8e9] border-0 text-[#191c1d] text-sm placeholder-[#727781] focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all"/></div>
-        <div class="mb-4"><label class="block text-[10px] font-semibold text-[#424750] uppercase tracking-wider mb-2">Teléfono / WhatsApp</label><input type="tel" placeholder="+54 9 11 XXXX-XXXX" class="w-full px-4 py-3 rounded-xl bg-[#e7e8e9] border-0 text-[#191c1d] text-sm placeholder-[#727781] focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all"/></div>
+        <div class="mb-4"><label class="block text-[10px] font-semibold text-[#424750] uppercase tracking-wider mb-2">Email</label><input type="email" name="email" required placeholder="tu@email.com" class="w-full px-4 py-3 rounded-xl bg-[#e7e8e9] border-0 text-[#191c1d] text-sm placeholder-[#727781] focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all"/></div>
+        <div class="mb-4"><label class="block text-[10px] font-semibold text-[#424750] uppercase tracking-wider mb-2">Teléfono / WhatsApp</label><input type="tel" name="telefono" required placeholder="+54 9 11 XXXX-XXXX" class="w-full px-4 py-3 rounded-xl bg-[#e7e8e9] border-0 text-[#191c1d] text-sm placeholder-[#727781] focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all"/></div>
         <div class="mb-4"><label class="block text-[10px] font-semibold text-[#424750] uppercase tracking-wider mb-2">Especialidad</label>
-          <select class="w-full px-4 py-3 rounded-xl bg-[#e7e8e9] border-0 text-[#191c1d] text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all">
+          <select name="especialidad" required class="w-full px-4 py-3 rounded-xl bg-[#e7e8e9] border-0 text-[#191c1d] text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all">
             <option value="">Seleccioná una especialidad</option>
-            <option>Kinesiología y Fisioterapia</option><option>Fisiatría</option>
-            <option>Rehabilitación Postquirúrgica</option><option>Rehabilitación Traumatológica</option>
-            <option>Rehabilitación Neurológica</option><option>Dolor y Recuperación Funcional</option>
-            <option>Rehabilitación Gerontológica</option><option>Evaluación Integral</option>
+            <option value="Kinesiología y Fisioterapia">Kinesiología y Fisioterapia</option><option value="Fisiatría">Fisiatría</option>
+            <option value="Rehabilitación Postquirúrgica">Rehabilitación Postquirúrgica</option><option value="Rehabilitación Traumatológica">Rehabilitación Traumatológica</option>
+            <option value="Rehabilitación Neurológica">Rehabilitación Neurológica</option><option value="Dolor y Recuperación">Dolor y Recuperación Funcional</option>
+            <option value="Rehabilitación Gerontológica">Rehabilitación Gerontológica</option><option value="Evaluación Integral">Evaluación Integral</option>
           </select>
         </div>
         <div class="mb-4"><label class="block text-[10px] font-semibold text-[#424750] uppercase tracking-wider mb-2">Cobertura médica</label>
-          <select class="w-full px-4 py-3 rounded-xl bg-[#e7e8e9] border-0 text-[#191c1d] text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all">
+          <select name="cobertura" required class="w-full px-4 py-3 rounded-xl bg-[#e7e8e9] border-0 text-[#191c1d] text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all">
             <option value="">¿Tenés obra social o prepaga?</option>
-            <option>OSDE</option><option>Swiss Medical</option><option>Medicus</option>
-            <option>Galeno</option><option>IOMA</option><option>PAMI</option>
-            <option>Otra</option><option>Particular (sin cobertura)</option>
+            <option value="OSDE">OSDE</option><option value="Swiss Medical">Swiss Medical</option><option value="Medicus">Medicus</option>
+            <option value="Galeno">Galeno</option><option value="IOMA">IOMA</option><option value="PAMI">PAMI</option>
+            <option value="Otra">Otra</option><option value="Particular">Particular (sin cobertura)</option>
           </select>
         </div>
         <div class="mb-6"><label class="block text-[10px] font-semibold text-[#424750] uppercase tracking-wider mb-2">Mensaje (opcional)</label>
-          <textarea rows="3" placeholder="Contanos brevemente sobre tu situación o diagnóstico..." class="w-full px-4 py-3 rounded-xl bg-[#e7e8e9] border-0 text-[#191c1d] text-sm placeholder-[#727781] focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all resize-none"></textarea>
+          <textarea name="mensaje" rows="3" placeholder="Contanos brevemente sobre tu situación o diagnóstico..." class="w-full px-4 py-3 rounded-xl bg-[#e7e8e9] border-0 text-[#191c1d] text-sm placeholder-[#727781] focus:outline-none focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all resize-none"></textarea>
         </div>
-        <button onclick="handleForm(this)" class="w-full bg-primary text-white py-4 rounded-xl font-headline font-bold text-base hover:bg-[#004b87] transition-all hover:scale-[1.01] flex items-center justify-center gap-2">
+        <button type="submit" class="w-full bg-primary text-white py-4 rounded-xl font-headline font-bold text-base hover:bg-[#004b87] transition-all hover:scale-[1.01] flex items-center justify-center gap-2">
           <span class="material-symbols-outlined fill-icon">calendar_today</span>Solicitar Turno Ahora
         </button>
         <p class="text-center text-xs text-[#424750] mt-4">Respuesta en menos de 24hs hábiles · También podés escribirnos por <a href="https://wa.me/5491144556677" target="_blank" class="text-primary font-bold">WhatsApp</a></p>
-      </div>
+      </form>
     </div>
   </div>
 </section>
@@ -573,15 +726,15 @@ tailwind.config = {
       <div>
         <h4 class="font-headline font-bold text-primary text-sm uppercase tracking-wider mb-5">Contacto</h4>
         <ul class="space-y-3">
-          <li class="flex items-center gap-2 text-[#424750] text-sm"><span class="material-symbols-outlined fill-icon text-primary" style="font-size:16px">location_on</span>Palermo, CABA</li>
+          <li class="flex items-center gap-2 text-[#424750] text-sm"><span class="material-symbols-outlined fill-icon text-primary" style="font-size:16px">location_on</span>Lavalle 362, Piso 8, CABA</li>
           <li><a href="tel:+541144556677" class="flex items-center gap-2 text-[#424750] text-sm hover:text-primary transition-colors"><span class="material-symbols-outlined fill-icon text-primary" style="font-size:16px">call</span>(011) 4455-6677</a></li>
           <li><a href="https://wa.me/5491144556677" target="_blank" class="flex items-center gap-2 text-[#424750] text-sm hover:text-primary transition-colors"><span class="material-symbols-outlined fill-icon text-primary" style="font-size:16px">chat</span>WhatsApp</a></li>
-          <li><a href="/cdn-cgi/l/email-protection#b2daddded3f2c4dbc6d3d1d3c0d79cd1dddf9cd3c0" class="flex items-center gap-2 text-[#424750] text-sm hover:text-primary transition-colors"><span class="material-symbols-outlined fill-icon text-primary" style="font-size:16px">mail</span><span class="__cf_email__" data-cfemail="2e4641424f6e58475a4f4d4f5c4b004d4143004f5c">[email&#160;protected]</span></a></li>
+          <li><a href="mailto:info@vitacare.com.ar" class="flex items-center gap-2 text-[#424750] text-sm hover:text-primary transition-colors"><span class="material-symbols-outlined fill-icon text-primary" style="font-size:16px">mail</span>info@vitacare.com.ar</a></li>
         </ul>
       </div>
     </div>
     <div class="flex flex-col md:flex-row justify-between items-center gap-4 pt-8 text-xs text-[#424750]">
-      <span>© 2025 VITACARE · Todos los derechos reservados</span>
+      <span>© 2026 VITACARE · Todos los derechos reservados</span>
       <div class="flex gap-5">
         <a href="#" class="hover:text-primary transition-colors">Política de privacidad</a>
         <a href="#" class="hover:text-primary transition-colors">Términos de uso</a>
@@ -592,15 +745,132 @@ tailwind.config = {
 </footer>
 
 <!-- FLOATING WA -->
-<a href="https://wa.me/5491144556677?text=Hola!%20Vi%20su%20web%20y%20quiero%20consultar%20sobre%20turnos%20en%20VITACARE" target="_blank" class="wa-float">
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2C6.477 2 2.004 6.473 2.004 12c0 1.869.491 3.625 1.344 5.153L2 22l4.934-1.304A9.96 9.96 0 0012.004 22c5.527 0 10-4.473 10-10s-4.473-10-10-10zm0 18c-1.659 0-3.218-.432-4.572-1.189l-.327-.194-3.393.897.906-3.303-.212-.34A7.969 7.969 0 014.004 12c0-4.411 3.589-8 8-8 4.41 0 8 3.589 8 8 0 4.41-3.59 8-8 8z"/></svg>
-  Hablar por WhatsApp
+<a href="https://wa.me/5491144556677?text=Hola!%20Vi%20su%20web%20y%20quiero%20consultar%20sobre%20turnos%20en%20VITACARE" target="_blank" class="wa-float" id="waFloat">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12.004 2C6.477 2 2.004 6.473 2.004 12c0 1.869.491 3.625 1.344 5.153L2 22l4.934-1.304A9.96 9.96 0 0012.004 22c5.527 0 10-4.473 10-10s-4.473-10-10-10zm0 18c-1.659 0-3.218-.432-4.572-1.189l-.327-.194-3.393.897.906-3.303-.212-.34A7.969 7.969 0 014.004 12c0-4.411 3.589-8 8-8 4.41 0 8 3.589 8 8 0 4.41-3.59 8-8 8z"/></svg>
+  <span class="wa-label">WhatsApp</span>
 </a>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script>
+  // Mobile menu
   document.getElementById('hamburger').addEventListener('click',()=>{document.getElementById('mobileMenu').classList.add('open');document.body.style.overflow='hidden';});
   document.getElementById('closeMenu').addEventListener('click',closeMobile);
   function closeMobile(){document.getElementById('mobileMenu').classList.remove('open');document.body.style.overflow='';}
 
+  // Card reveal on scroll
   const io=new IntersectionObserver(entries=>{entries.forEach(el=>{if(el.isIntersecting){el.target.style.opacity='1';el.target.style.transform='translateY(0)';io.unobserve(el.target);}});},{threshold:.08});
-  document.querySelectorAll('.card-hover').forEach((el,i)=>{el.style.opacity='0';el.style.transform='translateY(28px)';el.style.transitionDelay=`${(i%6)*55}ms`;el.style.transitionProperty='opacity,transform';el.style.transitionDuration='.55s';el.style.transitionTimingFunction='cubic-be
+  document.querySelectorAll('.card-hover').forEach((el,i)=>{el.style.opacity='0';el.style.transform='translateY(28px)';el.style.transitionDelay=`${(i%6)*55}ms`;el.style.transitionProperty='opacity,transform';el.style.transitionDuration='.55s';el.style.transitionTimingFunction='cubic-bezier(.4,0,.2,1)';io.observe(el);});
+
+  // Section reveal on scroll
+  const sectionIO=new IntersectionObserver(entries=>{entries.forEach(el=>{if(el.isIntersecting){el.target.classList.add('revealed');sectionIO.unobserve(el.target);}});},{threshold:.1});
+  document.querySelectorAll('section > div > div:first-child').forEach(el=>{if(!el.closest('.card-hover')){el.classList.add('section-reveal');sectionIO.observe(el);}});
+
+  // Nav scroll effect
+  const nav=document.querySelector('nav');
+  window.addEventListener('scroll',()=>{
+    if(window.scrollY>80){nav.classList.add('nav-scrolled');}else{nav.classList.remove('nav-scrolled');}
+  });
+
+  // Active nav link on scroll
+  const sections=document.querySelectorAll('section[id]');
+  const navLinks=document.querySelectorAll('.nav-link');
+  window.addEventListener('scroll',()=>{
+    let current='';
+    sections.forEach(s=>{
+      const top=s.offsetTop-120;
+      if(scrollY>=top)current=s.getAttribute('id');
+    });
+    navLinks.forEach(l=>{
+      l.classList.remove('active');
+      if(l.getAttribute('href')==='#'+current)l.classList.add('active');
+    });
+  });
+
+  // Stat counter animation
+  function animateValue(el,start,end,duration,suffix=''){
+    let startTime=null;
+    const step=(timestamp)=>{
+      if(!startTime)startTime=timestamp;
+      const progress=Math.min((timestamp-startTime)/duration,1);
+      const eased=1-Math.pow(1-progress,3);
+      el.textContent=(end==='CABA')?'CABA':((start+Math.floor(eased*(end-start)))+suffix);
+      if(progress<1)window.requestAnimationFrame(step);
+    };
+    window.requestAnimationFrame(step);
+  }
+
+  // Observe hero stats
+  const statsContainer=document.querySelector('.hero-a4');
+  if(statsContainer){
+    const statObserver=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){
+      const statEls=e.target.querySelectorAll('[data-count]');
+      statEls.forEach(el=>{
+        const val=el.dataset.count;
+        const suffix=el.dataset.suffix||'';
+        if(val==='CABA'){el.textContent='CABA';}else{animateValue(el,0,parseInt(val),1200,suffix);}
+      });
+      statObserver.unobserve(e.target);
+    }});},{threshold:.3});
+    statObserver.observe(statsContainer);
+  }
+
+  // Form submission handler via Formspree API
+  async function handleForm(btn) {
+    const form = btn.closest('form');
+    const inputs = form.querySelectorAll('input, select, textarea');
+    let valid = true;
+    const formData = new FormData(form);
+
+    inputs.forEach(inp => {
+      if (inp.required && !inp.value.trim()) {
+        valid = false;
+        inp.classList.add('ring-2', 'ring-red-400');
+        setTimeout(() => inp.classList.remove('ring-2', 'ring-red-400'), 2000);
+      }
+    });
+
+    if (!valid) return;
+
+    const originalHTML = btn.innerHTML;
+    btn.innerHTML = '<span class="material-symbols-outlined fill-icon animate-spin">progress_activity</span>Enviando...';
+    btn.disabled = true;
+
+    try {
+      /* Reemplazá TU_ID_DE_FORMSPREE_AQUI con el token entregado por https://formspree.io/
+       * Ejemplo: const url = 'https://formspree.io/f/xkndopzx'; */
+      const url = 'https://formspree.io/f/TU_ID_DE_FORMSPREE_AQUI'; 
+      
+      const response = await fetch(url, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        btn.innerHTML = '<span class="material-symbols-outlined fill-icon">check_circle</span>¡Solicitud Enviada!';
+        btn.classList.remove('bg-primary', 'hover:bg-[#004b87]');
+        btn.classList.add('bg-[#005613]', 'text-[#a3f69c]', 'form-success');
+      } else {
+        throw new Error('Network error');
+      }
+    } catch (error) {
+      alert("Atención: Necesitás configurar tu ID de Formspree en el código para que el formulario funcione. \nPor favor, contactanos vía WhatsApp mientras tanto.");
+      btn.innerHTML = originalHTML;
+      btn.disabled = false;
+    }
+  }
+
+  // FAQ Toggle handler
+  function toggleFaq(btn){
+    const content=btn.nextElementSibling;
+    const icon=btn.querySelector('.faq-icon');
+    if(content.classList.contains('hidden')){
+      content.classList.remove('hidden');
+      icon.style.transform='rotate(180deg)';
+      btn.parentElement.classList.add('border-[#a6e2ff]');
+    }else{
+      content.classList.add('hidden');
+      icon.style.transform='rotate(0deg)';
+      btn.parentElement.classList.remove('border-[#a6e2ff]');
+    }
+  }
+</script>
