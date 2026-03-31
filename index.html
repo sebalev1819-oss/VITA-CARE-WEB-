@@ -18,32 +18,47 @@
   --ca2:#00A898;
   --ca3:#00DFD0;
   --ca4:#E0FAF8;
-  --ca-glow:rgba(0,196,176,.25);
-  --ca-soft:rgba(0,196,176,.1);
-  --ca-mid:rgba(0,196,176,.18);
+  --ca-glow:rgba(0,196,176,.3);
+  --ca-soft:rgba(0,196,176,.12);
+  --ca-mid:rgba(0,196,176,.2);
 
   /* Secondary - naranja cálido */
   --warm:#FF6B35;
   --warm2:#E85A26;
 
-  /* Fondos - navy profundo */
-  --ink:#030C16;
-  --ink2:#071525;
-  --ink3:#0C1E34;
-  --ink4:#112540;
-  --ink5:#162C4A;
+  /* Fondos oscuros - azul navy rico (más luminoso) */
+  --ink:#091628;
+  --ink2:#0D1F38;
+  --ink3:#132849;
+  --ink4:#19305A;
+  --ink5:#1F3A6B;
 
-  /* Texto */
-  --t1:rgba(255,255,255,.95);
-  --t2:rgba(255,255,255,.65);
-  --t3:rgba(255,255,255,.38);
+  /* Fondos claros wellness */
+  --lt:#F4F9FF;
+  --lt2:#EBF5F4;
+  --lt3:#F7FBFA;
+  --lt4:#ffffff;
+
+  /* Texto sobre oscuro */
+  --t1:rgba(255,255,255,.97);
+  --t2:rgba(255,255,255,.72);
+  --t3:rgba(255,255,255,.42);
   --t4:rgba(255,255,255,.12);
 
-  /* Bordes */
-  --b1:rgba(0,196,176,.15);
-  --b2:rgba(0,196,176,.28);
-  --b3:rgba(255,255,255,.08);
-  --b4:rgba(255,255,255,.14);
+  /* Texto sobre claro */
+  --dt1:#0D1F38;
+  --dt2:#2A4069;
+  --dt3:#6B84A8;
+
+  /* Bordes oscuros */
+  --b1:rgba(0,196,176,.18);
+  --b2:rgba(0,196,176,.32);
+  --b3:rgba(255,255,255,.09);
+  --b4:rgba(255,255,255,.16);
+
+  /* Bordes claros */
+  --lb1:rgba(0,196,176,.25);
+  --lb2:rgba(13,31,56,.1);
 
   --r:14px;--rl:22px;
   --fd:'Syne',sans-serif;
@@ -82,9 +97,10 @@ nav.sc{background:rgba(3,12,22,.93);backdrop-filter:blur(28px);border-bottom:1px
 /* Fondo animado */
 .h-bg{position:absolute;inset:0}
 .h-mesh{position:absolute;inset:0;
-  background:radial-gradient(ellipse 100% 90% at 65% -5%,rgba(0,196,176,.14) 0%,transparent 52%),
-  radial-gradient(ellipse 70% 70% at -10% 80%,rgba(255,107,53,.07) 0%,transparent 45%),
-  radial-gradient(ellipse 50% 50% at 50% 120%,rgba(0,196,176,.06) 0%,transparent 50%),
+  background:radial-gradient(ellipse 110% 90% at 65% -10%,rgba(0,196,176,.18) 0%,transparent 52%),
+  radial-gradient(ellipse 70% 70% at -10% 80%,rgba(255,107,53,.1) 0%,transparent 45%),
+  radial-gradient(ellipse 60% 60% at 110% 100%,rgba(0,196,176,.1) 0%,transparent 50%),
+  radial-gradient(ellipse 50% 50% at 50% 120%,rgba(100,150,255,.07) 0%,transparent 50%),
   var(--ink)}
 .h-grid{position:absolute;inset:0;opacity:.025;
   background-image:linear-gradient(rgba(255,255,255,1) 1px,transparent 1px),
@@ -203,13 +219,13 @@ h2.h2 em{font-style:italic;color:var(--ca)}
 .sub{font-size:16.5px;line-height:1.72;color:var(--t2);max-width:540px}
 
 /* ══ BENEFICIOS ════════════════════════════════════ */
-#beneficios{background:var(--ink2);position:relative;overflow:hidden}
-#beneficios::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;
+#beneficios{background:var(--lt2);position:relative;overflow:hidden}
+#beneficios::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;
   background:linear-gradient(90deg,transparent,var(--ca),transparent)}
 .bens{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
 .bens-img{position:relative;border-radius:var(--rl);overflow:hidden}
 .bens-img img{width:100%;height:520px;object-fit:cover;display:block;
-  transition:transform .5s;filter:saturate(.92)}
+  transition:transform .5s;filter:saturate(1.05) brightness(1.05)}
 .bens-img:hover img{transform:scale(1.03)}
 .bens-img-overlay{position:absolute;inset:0;
   background:linear-gradient(135deg,rgba(0,196,176,.18),transparent 55%),
@@ -646,7 +662,83 @@ footer{background:#020810;border-top:1px solid var(--b3);padding:76px 0 36px}
   .gal-grid{grid-template-columns:1fr 1fr;grid-auto-rows:180px}
 }
 
-/* ══ TECH SECTION ADICIONAL ════════════════════════ */
+/* ══ SECCIONES CLARAS - WELLNESS LIGHT MODE ══════════ */
+.s-light{color:var(--dt1)}
+.s-light h2.h2{color:var(--dt1)}
+.s-light h2.h2 em{color:var(--ca2)}
+.s-light .tag{color:var(--ca2)}
+.s-light .tag::before{background:var(--ca2)}
+.s-light .sub{color:var(--dt2)}
+.s-light .h-sub{color:var(--dt2)}
+
+/* Cards en fondo claro */
+.s-light .ben-item{background:#fff;border-color:rgba(0,196,176,.15);
+  box-shadow:0 4px 24px rgba(13,31,56,.07)}
+.s-light .ben-h{color:var(--dt1)}
+.s-light .ben-p{color:var(--dt2)}
+.s-light .bbadge{background:#fff;border-color:rgba(13,31,56,.1);
+  box-shadow:0 4px 20px rgba(13,31,56,.06)}
+.s-light .bbadge-lbl{color:var(--dt3)}
+.s-light .bens-img-overlay{background:linear-gradient(135deg,rgba(0,196,176,.12),transparent 55%),
+  linear-gradient(0deg,rgba(255,255,255,.25) 0%,transparent 50%)}
+
+/* Pilares en claro */
+.s-light .pil3-card{background:#fff;border-color:rgba(13,31,56,.08);
+  box-shadow:0 4px 32px rgba(13,31,56,.06)}
+.s-light .pil3-card:hover{box-shadow:0 20px 60px rgba(13,31,56,.12)}
+.s-light .pil3-title{color:var(--dt1)}
+.s-light .pil3-desc{color:var(--dt2)}
+.s-light .pil3-stat{border-color:rgba(13,31,56,.1)}
+.s-light .pil3-stat-lbl{color:var(--dt3)}
+
+/* Wearables en claro */
+.s-light .wear-int{background:#fff;border-color:rgba(13,31,56,.1);color:var(--dt2)}
+.s-light .wear-int:hover{color:var(--dt1);border-color:var(--ca)}
+.s-light .wear-device{background:#fff;border-color:rgba(13,31,56,.1)}
+.s-light .wear-device-label{background:rgba(255,255,255,.92);backdrop-filter:blur(12px)}
+.s-light .wdl-name{color:var(--dt1)}
+.s-light .data-ring-lbl{color:var(--dt2)}
+
+/* Diferenciadores en claro */
+.s-light .dif-card{background:#fff;border-color:rgba(13,31,56,.08);
+  box-shadow:0 4px 28px rgba(13,31,56,.06)}
+.s-light .dif-card:hover{box-shadow:0 20px 60px rgba(13,31,56,.12)}
+.s-light .dif-title{color:var(--dt1)}
+.s-light .dif-desc{color:var(--dt2)}
+.s-light .dif-list li{color:var(--dt3)}
+.s-light .dif-card:hover .dif-list li{color:var(--dt2)}
+
+/* Testimonios en claro */
+.s-light .t-card{background:#fff;border-color:rgba(13,31,56,.08);
+  box-shadow:0 4px 24px rgba(13,31,56,.06)}
+.s-light .t-card:hover{box-shadow:0 20px 56px rgba(13,31,56,.12)}
+.s-light .t-q{color:var(--dt1)}
+.s-light .t-nm{color:var(--dt1)}
+.s-light .t-ro{color:var(--dt3)}
+.s-light .t-co{color:var(--ca2)}
+
+/* FAQ en claro */
+.s-light .fi{background:#fff;border-color:rgba(13,31,56,.1)}
+.s-light .fq{color:var(--dt1)}
+.s-light .fq:hover{color:var(--ca2)}
+.s-light .fa p{color:var(--dt2)}
+.s-light .ftog{background:rgba(13,31,56,.06);color:var(--dt3)}
+.s-light .fi.op{border-color:var(--ca)}
+.s-light .fi.op .ftog{background:rgba(0,196,176,.12);color:var(--ca2)}
+
+/* Inline styles de wearables metric numbers - override en claro */
+.s-light [style*="var(--ink3)"]{background:#fff!important}
+.s-light [style*="var(--b3)"]{border-color:rgba(13,31,56,.1)!important}
+
+/* Imagen filtro más vívido en toda la página */
+.gal-item img{filter:saturate(.85) brightness(.8)}
+.pil3-img-wrap img{filter:saturate(.85) brightness(.72)}
+.pil3-card:hover .pil3-img-wrap img{filter:saturate(1.05) brightness(.88)}
+.tech-img-main{filter:saturate(.95) brightness(.85)}
+.wear-device img{filter:saturate(.9) brightness(.8)}
+.wear-device:hover img{filter:saturate(1.05) brightness(.9)}
+
+
 /* Partículas CSS en hero */
 .particles{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 .particle{position:absolute;border-radius:50%;animation:particleFloat linear infinite}
@@ -906,7 +998,7 @@ footer{background:#020810;border-top:1px solid var(--b3);padding:76px 0 36px}
 </div>
 
 <!-- ██ BENEFICIOS ██ -->
-<section id="beneficios">
+<section id="beneficios" class="s-light">
   <div class="w">
     <div class="bens">
       <div class="bens-img rv">
@@ -976,8 +1068,8 @@ footer{background:#020810;border-top:1px solid var(--b3);padding:76px 0 36px}
 
 
 <!-- ██ LO QUE NOS HACE ÚNICOS ██ -->
-<section id="diferencial" style="background:var(--ink);position:relative;overflow:hidden">
-  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(0,196,176,.05),transparent)"></div>
+<section id="diferencial" class="s-light" style="background:#F0F7FF;position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(0,196,176,.08),transparent)"></div>
   <div class="w" style="position:relative;z-index:1">
     <div style="text-align:center;max-width:640px;margin:0 auto 64px">
       <div class="tag">Nuestro ADN</div>
@@ -1176,7 +1268,7 @@ footer{background:#020810;border-top:1px solid var(--b3);padding:76px 0 36px}
 </div>
 
 <!-- ██ WEARABLES ██ -->
-<section id="wearables">
+<section id="wearables" class="s-light" style="background:#EBF7F5">
   <div class="w">
     <div class="wear-layout">
       <div>
@@ -1244,7 +1336,7 @@ footer{background:#020810;border-top:1px solid var(--b3);padding:76px 0 36px}
   </div>
 </section>
 <!-- ██ PILARES ██ -->
-<section id="pilares">
+<section id="pilares" class="s-light" style="background:#F0FBF9">
   <div class="w">
     <div class="pil-head">
       <div>
@@ -1487,7 +1579,7 @@ footer{background:#020810;border-top:1px solid var(--b3);padding:76px 0 36px}
 </section>
 
 <!-- ██ TESTIMONIOS ██ -->
-<section id="testi">
+<section id="testi" class="s-light" style="background:#F4F9FF">
   <div class="w">
     <div style="text-align:center;margin-bottom:56px">
       <div class="tag" style="justify-content:center">Testimonios</div>
