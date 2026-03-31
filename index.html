@@ -110,7 +110,7 @@ nav.sc{background:rgba(3,12,22,.93);backdrop-filter:blur(28px);border-bottom:1px
 @keyframes blink{0%,100%{box-shadow:0 0 0 0 rgba(0,196,176,.6)}50%{box-shadow:0 0 0 6px rgba(0,196,176,0)}}
 .h-pill-txt{font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ca)}
 
-h1.h1{font-family:var(--fd);font-size:clamp(44px,5.5vw,78px);line-height:1.04;letter-spacing:-.04em;color:var(--t1);margin-bottom:22px}
+h1.h1{font-family:var(--fd);font-size:clamp(38px,4.2vw,64px);line-height:1.08;letter-spacing:-.025em;color:var(--t1);margin-bottom:22px}
 .h1 .g{
   background:linear-gradient(120deg,var(--ca) 0%,#7FFFEF 35%,var(--ca3) 65%,#B8FFF6 100%);
   -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
@@ -197,8 +197,8 @@ section{padding:110px 0}
   font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
   color:var(--ca);margin-bottom:14px}
 .tag::before{content:'';width:14px;height:2px;background:var(--ca);border-radius:1px}
-h2.h2{font-family:var(--fd);font-size:clamp(30px,3.8vw,52px);line-height:1.1;
-  letter-spacing:-.035em;color:var(--t1);margin-bottom:14px}
+h2.h2{font-family:var(--fd);font-size:clamp(26px,3vw,44px);line-height:1.15;
+  letter-spacing:-.02em;color:var(--t1);margin-bottom:14px}
 h2.h2 em{font-style:italic;color:var(--ca)}
 .sub{font-size:16.5px;line-height:1.72;color:var(--t2);max-width:540px}
 
@@ -256,8 +256,8 @@ h2.h2 em{font-style:italic;color:var(--ca)}
 .pst::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .28s;
   background:radial-gradient(circle at 0% 100%,rgba(0,196,176,.05),transparent 60%)}
 .pst:hover::before{opacity:1}
-.pst-n{font-family:var(--fd);font-size:clamp(34px,4vw,50px);font-weight:800;
-  letter-spacing:-.04em;margin-bottom:8px;display:block}
+.pst-n{font-family:var(--fd);font-size:clamp(28px,3vw,40px);font-weight:800;
+  letter-spacing:-.02em;margin-bottom:8px;display:block}
 .pst-d{font-size:13.5px;color:var(--t2);line-height:1.55}
 .pst-s{font-size:10.5px;color:var(--t3);margin-top:7px}
 
@@ -409,8 +409,8 @@ h2.h2 em{font-style:italic;color:var(--ca)}
   position:relative;overflow:hidden;transition:background .28s}
 .m-box:hover{background:var(--ink4)}
 .m-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--mc,var(--ca))}
-.m-num{font-family:var(--fd);font-size:clamp(38px,5vw,60px);font-weight:800;
-  letter-spacing:-.05em;display:block;margin-bottom:8px}
+.m-num{font-family:var(--fd);font-size:clamp(30px,3.4vw,48px);font-weight:800;
+  letter-spacing:-.025em;display:block;margin-bottom:8px}
 .mc{color:var(--ca)}.mo{color:var(--warm)}.mg{color:#4ADE80}.mb{color:#60A5FA}
 .m-lbl{font-size:13.5px;color:var(--t2);line-height:1.4}
 .m-src{font-size:10px;color:var(--t3);margin-top:7px}
@@ -575,6 +575,33 @@ footer{background:#020810;border-top:1px solid var(--b3);padding:76px 0 36px}
 .fls{display:flex;gap:18px}
 .fls a{font-size:12.5px;color:var(--t3);text-decoration:none;transition:color .2s}
 .fls a:hover{color:var(--t1)}
+
+/* ══ DIFERENCIADORES ════════════════════════════════ */
+.dif-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.dif-card{background:var(--ink2);border:1px solid var(--b3);border-radius:var(--rl);
+  padding:36px;display:flex;gap:24px;align-items:flex-start;
+  position:relative;overflow:hidden;transition:all .32s}
+.dif-card:hover{border-color:var(--b2);transform:translateY(-4px);
+  box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.dif-accent{position:absolute;inset:0;pointer-events:none;opacity:.5}
+.dif-icon-wrap{width:68px;height:68px;border-radius:18px;border:1px solid;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  transition:transform .3s}
+.dif-card:hover .dif-icon-wrap{transform:scale(1.08) rotate(-5deg)}
+.dif-content{flex:1}
+.dif-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.07em;
+  text-transform:uppercase;border:1px solid;border-radius:50px;
+  padding:3px 10px;margin-bottom:12px}
+.dif-title{font-family:var(--fd);font-size:22px;font-weight:800;color:var(--t1);
+  line-height:1.15;letter-spacing:-.02em;margin-bottom:12px}
+.dif-desc{font-size:13.5px;color:var(--t2);line-height:1.7;margin-bottom:18px}
+.dif-list{list-style:none;display:flex;flex-direction:column;gap:8px}
+.dif-list li{font-size:13px;color:var(--t3);display:flex;align-items:center;gap:9px;
+  transition:color .2s}
+.dif-card:hover .dif-list li{color:var(--t2)}
+.dif-bullet{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+@media(max-width:820px){.dif-grid{grid-template-columns:1fr}}
+@media(max-width:640px){.dif-card{flex-direction:column;gap:16px}}
 
 /* ══ ANIMACIONES ════════════════════════════════════ */
 .rv{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
@@ -947,6 +974,95 @@ footer{background:#020810;border-top:1px solid var(--b3);padding:76px 0 36px}
   </div>
 </section>
 
+
+<!-- ██ LO QUE NOS HACE ÚNICOS ██ -->
+<section id="diferencial" style="background:var(--ink);position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(0,196,176,.05),transparent)"></div>
+  <div class="w" style="position:relative;z-index:1">
+    <div style="text-align:center;max-width:640px;margin:0 auto 64px">
+      <div class="tag">Nuestro ADN</div>
+      <h2 class="h2">Lo que nos hace<br/><em>verdaderamente únicos</em></h2>
+      <p class="sub" style="margin:14px auto 0;text-align:center">No solo tecnología — presencia real, experiencias humanas y programas que se sienten de verdad.</p>
+    </div>
+
+    <!-- Grid 2x2 de diferenciales -->
+    <div class="dif-grid rv">
+
+      <!-- 1. Profesionales In-House -->
+      <div class="dif-card">
+        <div class="dif-icon-wrap" style="background:linear-gradient(135deg,rgba(0,196,176,.15),rgba(0,196,176,.04));border-color:rgba(0,196,176,.25)">
+          <span style="font-size:32px">🏢</span>
+        </div>
+        <div class="dif-content">
+          <div class="dif-tag" style="color:#00C4B0;background:rgba(0,196,176,.08);border-color:rgba(0,196,176,.2)">Presencia Real</div>
+          <h3 class="dif-title">Profesionales<br/>In-House</h3>
+          <p class="dif-desc">Nuestros profesionales de salud — psicólogos, nutricionistas y coaches — van directamente a tu empresa. No somos solo una app: somos presencia física, conexión humana y acompañamiento cercano.</p>
+          <ul class="dif-list">
+            <li><span class="dif-bullet" style="background:#00C4B0"></span>Atención presencial en tu oficina</li>
+            <li><span class="dif-bullet" style="background:#00C4B0"></span>Psicólogos y coaches certificados</li>
+            <li><span class="dif-bullet" style="background:#00C4B0"></span>Sin desplazamiento de tus colaboradores</li>
+          </ul>
+        </div>
+        <div class="dif-accent" style="background:linear-gradient(180deg,rgba(0,196,176,.06),transparent)"></div>
+      </div>
+
+      <!-- 2. Pausas Activas -->
+      <div class="dif-card">
+        <div class="dif-icon-wrap" style="background:linear-gradient(135deg,rgba(74,222,128,.15),rgba(74,222,128,.04));border-color:rgba(74,222,128,.25)">
+          <span style="font-size:32px">🧘</span>
+        </div>
+        <div class="dif-content">
+          <div class="dif-tag" style="color:#4ADE80;background:rgba(74,222,128,.08);border-color:rgba(74,222,128,.2)">En tu empresa</div>
+          <h3 class="dif-title">Pausas<br/>Activas</h3>
+          <p class="dif-desc">Sesiones de movimiento y desconexión programadas durante la jornada laboral. Demostramos que 10 minutos de bienestar activo reducen el estrés acumulado y mejoran la concentración del equipo.</p>
+          <ul class="dif-list">
+            <li><span class="dif-bullet" style="background:#4ADE80"></span>Rutinas de movimiento guiado</li>
+            <li><span class="dif-bullet" style="background:#4ADE80"></span>Técnicas de respiración y mindfulness</li>
+            <li><span class="dif-bullet" style="background:#4ADE80"></span>Programadas según tu cultura de empresa</li>
+          </ul>
+        </div>
+        <div class="dif-accent" style="background:linear-gradient(180deg,rgba(74,222,128,.06),transparent)"></div>
+      </div>
+
+      <!-- 3. Webinars y Charlas -->
+      <div class="dif-card">
+        <div class="dif-icon-wrap" style="background:linear-gradient(135deg,rgba(167,139,250,.15),rgba(167,139,250,.04));border-color:rgba(167,139,250,.25)">
+          <span style="font-size:32px">🎤</span>
+        </div>
+        <div class="dif-content">
+          <div class="dif-tag" style="color:#A78BFA;background:rgba(167,139,250,.08);border-color:rgba(167,139,250,.2)">Formación continua</div>
+          <h3 class="dif-title">Webinars &<br/>Charlas</h3>
+          <p class="dif-desc">Ciclos mensuales de charlas y webinars con expertos en salud, finanzas personales y bienestar laboral. Contenidos diseñados para LATAM, en formato presencial u online según tus necesidades.</p>
+          <ul class="dif-list">
+            <li><span class="dif-bullet" style="background:#A78BFA"></span>Expertos en salud y bienestar</li>
+            <li><span class="dif-bullet" style="background:#A78BFA"></span>Formato presencial y online</li>
+            <li><span class="dif-bullet" style="background:#A78BFA"></span>Grabaciones disponibles para tu equipo</li>
+          </ul>
+        </div>
+        <div class="dif-accent" style="background:linear-gradient(180deg,rgba(167,139,250,.06),transparent)"></div>
+      </div>
+
+      <!-- 4. Marca Blanca -->
+      <div class="dif-card">
+        <div class="dif-icon-wrap" style="background:linear-gradient(135deg,rgba(255,107,53,.15),rgba(255,107,53,.04));border-color:rgba(255,107,53,.25)">
+          <span style="font-size:32px">🏷️</span>
+        </div>
+        <div class="dif-content">
+          <div class="dif-tag" style="color:#FF6B35;background:rgba(255,107,53,.08);border-color:rgba(255,107,53,.2)">White Label</div>
+          <h3 class="dif-title">Marcas<br/>Blancas</h3>
+          <p class="dif-desc">Toda nuestra plataforma puede ser desplegada bajo tu identidad corporativa. Tu logo, tus colores, tu voz — potenciados por nuestra infraestructura IA y red de profesionales de salud.</p>
+          <ul class="dif-list">
+            <li><span class="dif-bullet" style="background:#FF6B35"></span>App con tu marca y colores</li>
+            <li><span class="dif-bullet" style="background:#FF6B35"></span>Ideal para aseguradoras y corredoras</li>
+            <li><span class="dif-bullet" style="background:#FF6B35"></span>Configuración personalizada completa</li>
+          </ul>
+        </div>
+        <div class="dif-accent" style="background:linear-gradient(180deg,rgba(255,107,53,.06),transparent)"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
 
 <!-- ██ TECNOLOGÍA IA ██ -->
 <section id="tecnologia">
