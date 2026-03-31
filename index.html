@@ -7,7 +7,7 @@
 <meta name="description" content="Ecosistema líder de bienestar corporativo en LATAM. Programas de alto impacto para equipos más sanos, felices y productivos."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
@@ -61,8 +61,8 @@
   --lb2:rgba(13,31,56,.1);
 
   --r:14px;--rl:22px;
-  --fd:'Syne',sans-serif;
-  --fb:'Plus Jakarta Sans',sans-serif;
+  --fd:'Outfit',sans-serif;
+  --fb:'Inter',sans-serif;
 }
 
 html{scroll-behavior:smooth}
@@ -152,36 +152,67 @@ h1.h1{font-family:var(--fd);font-size:clamp(38px,4.2vw,64px);line-height:1.08;le
 .htrust-dot{width:5px;height:5px;border-radius:50%;background:var(--ca);flex-shrink:0}
 
 /* Teléfono mockup */
-.h-visual{position:relative;display:flex;justify-content:center;align-items:center}
-.phone{width:252px;background:linear-gradient(160deg,var(--ink3),var(--ink2));
-  border:1px solid var(--b4);border-radius:38px;padding:14px;
-  box-shadow:0 48px 96px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.07);
+.h-visual{position:relative;display:flex;justify-content:center;align-items:center;padding:20px 0}
+.phone{width:272px;background:linear-gradient(160deg,#112035,#0D1F38);
+  border:1.5px solid rgba(255,255,255,.18);border-radius:44px;padding:14px;
+  box-shadow:0 56px 110px rgba(0,0,0,.65),0 24px 48px rgba(0,0,0,.4),
+  inset 0 1px 0 rgba(255,255,255,.1);
   position:relative;z-index:2}
-.p-notch{width:86px;height:26px;background:var(--ink);border-radius:0 0 16px 16px;margin:0 auto 14px}
-.p-screen{background:var(--ink4);border-radius:26px;overflow:hidden;padding:18px}
-.p-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
-.p-gr{font-size:10px;color:var(--t3)}.p-nm{font-size:13px;font-weight:700;color:var(--t1)}
-.p-av{width:32px;height:32px;border-radius:50%;overflow:hidden;border:2px solid var(--ca)}
+.p-notch{width:90px;height:28px;background:#091628;border-radius:0 0 18px 18px;
+  margin:0 auto 12px;display:flex;align-items:center;justify-content:center;gap:6px}
+.p-notch::before{content:'';width:8px;height:8px;border-radius:50%;background:#1a2d45}
+.p-notch::after{content:'';width:56px;height:5px;border-radius:3px;background:#1a2d45}
+
+/* Pantalla app */
+.p-screen{background:linear-gradient(175deg,#0A2235 0%,#0D1B30 100%);
+  border-radius:30px;overflow:hidden;padding:18px 16px}
+
+/* Header */
+.p-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.p-gr{font-size:10px;color:rgba(255,255,255,.45);font-weight:500;letter-spacing:.02em}
+.p-nm{font-size:14px;font-weight:700;color:#fff;margin-top:1px}
+.p-av{width:36px;height:36px;border-radius:50%;overflow:hidden;
+  border:2.5px solid var(--ca);box-shadow:0 0 12px rgba(0,196,176,.4)}
 .p-av img{width:100%;height:100%;object-fit:cover}
-/* Score ring */
-.p-score{background:linear-gradient(135deg,rgba(0,196,176,.1),rgba(0,196,176,.04));
-  border:1px solid rgba(0,196,176,.18);border-radius:16px;padding:16px;margin-bottom:12px;text-align:center}
-.p-score-ring{width:56px;height:56px;margin:0 auto 6px;position:relative}
-.p-snum{font-family:var(--fb);font-size:34px;font-weight:800;color:var(--ca);letter-spacing:-.01em;line-height:1}
-.p-slbl{font-size:10px;color:var(--t3)}
-.p-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
-.p-stat{background:rgba(255,255,255,.04);border:1px solid var(--b3);border-radius:11px;padding:11px}
-.p-sv{font-size:16px;font-weight:700}.p-sl{font-size:9px;color:var(--t3);margin-top:1px}
-.p-reto{background:linear-gradient(135deg,rgba(255,107,53,.1),rgba(255,107,53,.04));
-  border:1px solid rgba(255,107,53,.2);border-radius:11px;padding:11px;
-  display:flex;align-items:center;gap:9px}
-.p-ri{width:30px;height:30px;border-radius:8px;background:rgba(255,107,53,.18);
-  display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
-.p-rt1{font-size:10.5px;font-weight:600;color:var(--t1)}.p-rt2{font-size:9px;color:var(--t3);margin-top:1px}
+
+/* Score card */
+.p-score{background:linear-gradient(135deg,rgba(0,196,176,.15) 0%,rgba(0,196,176,.04) 100%);
+  border:1px solid rgba(0,196,176,.25);border-radius:18px;
+  padding:14px 16px 12px;margin-bottom:10px;
+  display:flex;align-items:center;gap:14px}
+.p-score-ring{width:62px;height:62px;flex-shrink:0;position:relative}
+.p-score-text{flex:1}
+.p-snum{font-family:var(--fb);font-size:36px;font-weight:800;color:var(--ca);
+  letter-spacing:-.01em;line-height:1}
+.p-slbl{font-size:9.5px;color:rgba(255,255,255,.45);margin-top:2px;letter-spacing:.02em}
+.p-score-bar{height:4px;background:rgba(255,255,255,.08);border-radius:2px;margin-top:8px}
+.p-score-bar-fill{height:100%;width:87%;background:linear-gradient(90deg,var(--ca),var(--ca3));
+  border-radius:2px;box-shadow:0 0 8px var(--ca-glow)}
+
+/* Stats grid */
+.p-stats{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:9px}
+.p-stat{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);
+  border-radius:13px;padding:10px 12px}
+.p-sv{font-family:var(--fb);font-size:15px;font-weight:700;line-height:1}
+.p-sl{font-size:8.5px;color:rgba(255,255,255,.4);margin-top:3px;font-weight:500}
+
+/* Reto */
+.p-reto{background:linear-gradient(135deg,rgba(255,107,53,.12),rgba(255,107,53,.03));
+  border:1px solid rgba(255,107,53,.22);border-radius:13px;padding:11px 12px;
+  display:flex;align-items:center;gap:10px}
+.p-ri{width:32px;height:32px;border-radius:9px;
+  background:linear-gradient(135deg,rgba(255,107,53,.25),rgba(255,107,53,.1));
+  display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;
+  border:1px solid rgba(255,107,53,.2)}
+.p-rt1{font-size:10.5px;font-weight:600;color:rgba(255,255,255,.9)}
+.p-rt2{font-size:8.5px;color:rgba(255,255,255,.4);margin-top:2px}
+.p-progress{height:3px;background:rgba(255,107,53,.15);border-radius:2px;margin-top:6px}
+.p-progress-fill{height:100%;width:60%;background:var(--warm);border-radius:2px}
 
 /* Glow y float cards */
-.p-glow{position:absolute;width:300px;height:300px;
-  background:radial-gradient(circle,rgba(0,196,176,.1),transparent 65%);border-radius:50%;z-index:1}
+.p-glow{position:absolute;width:360px;height:360px;
+  background:radial-gradient(circle,rgba(0,196,176,.13),transparent 65%);
+  border-radius:50%;z-index:1}
 .fcard{position:absolute;background:rgba(7,21,37,.94);backdrop-filter:blur(20px);
   border:1px solid var(--b4);border-radius:14px;padding:11px 16px;
   display:flex;align-items:center;gap:10px;white-space:nowrap;font-size:12.5px;
@@ -944,27 +975,44 @@ footer{background:#020810;border-top:1px solid var(--b3);padding:76px 0 36px}
       <div class="phone">
         <div class="p-notch"></div>
         <div class="p-screen">
+          <!-- Header -->
           <div class="p-head">
             <div><div class="p-gr">Buenos días,</div><div class="p-nm">Ana García ✨</div></div>
-            <div class="p-av"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=80&auto=format&fit=crop&crop=face" alt=""/></div>
+            <div class="p-av"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=80&auto=format&fit=crop&crop=face" alt="Ana García"/></div>
           </div>
+          <!-- Score card horizontal -->
           <div class="p-score">
             <div class="p-score-ring">
-              <svg viewBox="0 0 56 56" width="56" height="56" style="transform:rotate(-90deg)">
-                <circle cx="28" cy="28" r="22" stroke="rgba(0,196,176,.14)" stroke-width="5" fill="none"/>
-                <circle cx="28" cy="28" r="22" stroke="#00C4B0" stroke-width="5" fill="none" stroke-dasharray="138" stroke-dashoffset="28" stroke-linecap="round"/>
+              <svg viewBox="0 0 64 64" width="62" height="62" style="transform:rotate(-90deg)">
+                <circle cx="32" cy="32" r="26" stroke="rgba(0,196,176,.12)" stroke-width="5.5" fill="none"/>
+                <circle cx="32" cy="32" r="26" stroke="#00C4B0" stroke-width="5.5" fill="none" stroke-dasharray="163" stroke-dashoffset="28" stroke-linecap="round"/>
               </svg>
             </div>
-            <div class="p-snum">87</div>
-            <div class="p-slbl">Bienestar Score</div>
+            <div class="p-score-text">
+              <div class="p-snum">87</div>
+              <div class="p-slbl">BIENESTAR SCORE</div>
+              <div class="p-score-bar"><div class="p-score-bar-fill"></div></div>
+            </div>
           </div>
+          <!-- Stats -->
           <div class="p-stats">
-            <div class="p-stat"><div class="p-sv" style="color:#00C4B0">🔥 14</div><div class="p-sl">Días racha</div></div>
-            <div class="p-stat"><div class="p-sv" style="color:#FF6B35">💎 840</div><div class="p-sl">CareCoins</div></div>
+            <div class="p-stat">
+              <div class="p-sv" style="color:#FF6B35">🔥 14</div>
+              <div class="p-sl">DÍAS RACHA</div>
+            </div>
+            <div class="p-stat">
+              <div class="p-sv" style="color:#A78BFA">💎 840</div>
+              <div class="p-sl">CARECOINS</div>
+            </div>
           </div>
+          <!-- Reto semanal -->
           <div class="p-reto">
             <div class="p-ri">🏆</div>
-            <div><div class="p-rt1">Reto semanal activo</div><div class="p-rt2">Meditación 5 días · 3/5</div></div>
+            <div style="flex:1;min-width:0">
+              <div class="p-rt1">Reto semanal activo</div>
+              <div class="p-rt2">Meditación 5 días · 3/5 completado</div>
+              <div class="p-progress"><div class="p-progress-fill"></div></div>
+            </div>
           </div>
         </div>
       </div>
