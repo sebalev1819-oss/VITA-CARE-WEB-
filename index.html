@@ -151,69 +151,61 @@ h1.h1{font-family:var(--fd);font-size:clamp(38px,4.2vw,64px);line-height:1.08;le
 .htrust-item{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--t3);font-weight:400}
 .htrust-dot{width:5px;height:5px;border-radius:50%;background:var(--ca);flex-shrink:0}
 
-/* Teléfono mockup */
+/* App Care Assistance Real Mockup */
 .h-visual{position:relative;display:flex;justify-content:center;align-items:center;padding:20px 0}
-.phone{width:272px;background:linear-gradient(160deg,#112035,#0D1F38);
-  border:1.5px solid rgba(255,255,255,.18);border-radius:44px;padding:14px;
-  box-shadow:0 56px 110px rgba(0,0,0,.65),0 24px 48px rgba(0,0,0,.4),
-  inset 0 1px 0 rgba(255,255,255,.1);
+.phone{width:280px;background:#fff;
+  border:2.5px solid #e2e8f0;border-radius:44px;padding:12px;
+  box-shadow:0 30px 60px rgba(0,0,0,.15),0 0 0 8px #091628;
   position:relative;z-index:2}
-.p-notch{width:90px;height:28px;background:#091628;border-radius:0 0 18px 18px;
-  margin:0 auto 12px;display:flex;align-items:center;justify-content:center;gap:6px}
+.p-notch{width:90px;height:24px;background:#091628;border-radius:0 0 16px 16px;
+  margin:0 auto;display:flex;align-items:center;justify-content:center;position:absolute;left:50%;transform:translateX(-50%);top:12px;z-index:10;gap:6px}
 .p-notch::before{content:'';width:8px;height:8px;border-radius:50%;background:#1a2d45}
-.p-notch::after{content:'';width:56px;height:5px;border-radius:3px;background:#1a2d45}
+.p-notch::after{content:'';width:40px;height:5px;border-radius:3px;background:#1a2d45}
 
 /* Pantalla app */
-.p-screen{background:linear-gradient(175deg,#0A2235 0%,#0D1B30 100%);
-  border-radius:30px;overflow:hidden;padding:18px 16px}
+.p-screen{background:#F8F9FA;border-radius:30px;overflow:hidden;padding:38px 16px 16px;min-height:540px;position:relative}
 
 /* Header */
-.p-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
-.p-gr{font-size:10px;color:rgba(255,255,255,.45);font-weight:500;letter-spacing:.02em}
-.p-nm{font-size:14px;font-weight:700;color:#fff;margin-top:1px}
-.p-av{width:36px;height:36px;border-radius:50%;overflow:hidden;
-  border:2.5px solid var(--ca);box-shadow:0 0 12px rgba(0,196,176,.4)}
-.p-av img{width:100%;height:100%;object-fit:cover}
+.p-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.p-logo{font-family:var(--fd);font-weight:700;font-size:14px;color:#091628;display:flex;align-items:center;gap:4px}
+.p-logo span{color:var(--ca)}
+.p-gr{font-size:9.5px;color:#64748b;font-weight:500;text-align:right}
+.p-nm{font-size:13px;font-weight:700;color:#0f172a;margin-top:1px;text-align:right}
 
-/* Score card */
-.p-score{background:linear-gradient(135deg,rgba(0,196,176,.15) 0%,rgba(0,196,176,.04) 100%);
-  border:1px solid rgba(0,196,176,.25);border-radius:18px;
-  padding:14px 16px 12px;margin-bottom:10px;
-  display:flex;align-items:center;gap:14px}
-.p-score-ring{width:62px;height:62px;flex-shrink:0;position:relative}
-.p-score-text{flex:1}
-.p-snum{font-family:var(--fb);font-size:36px;font-weight:800;color:var(--ca);
-  letter-spacing:-.01em;line-height:1}
-.p-slbl{font-size:9.5px;color:rgba(255,255,255,.45);margin-top:2px;letter-spacing:.02em}
-.p-score-bar{height:4px;background:rgba(255,255,255,.08);border-radius:2px;margin-top:8px}
-.p-score-bar-fill{height:100%;width:87%;background:linear-gradient(90deg,var(--ca),var(--ca3));
-  border-radius:2px;box-shadow:0 0 8px var(--ca-glow)}
+/* Banner */
+.p-banner{background:#fff;border-radius:14px;box-shadow:0 4px 10px rgba(0,0,0,.03);display:flex;overflow:hidden;margin-bottom:24px}
+.p-b-img{width:86px;height:72px}
+.p-b-img img{width:100%;height:100%;object-fit:cover}
+.p-b-text{padding:12px;flex:1;display:flex;flex-direction:column;justify-content:center}
+.p-b-text div{font-size:11px;font-weight:700;line-height:1.3;color:#0f172a}
+.p-b-text span{color:var(--ca)}
 
-/* Stats grid */
-.p-stats{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-bottom:9px}
-.p-stat{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);
-  border-radius:13px;padding:10px 12px}
-.p-sv{font-family:var(--fb);font-size:15px;font-weight:700;line-height:1}
-.p-sl{font-size:8.5px;color:rgba(255,255,255,.4);margin-top:3px;font-weight:500}
+/* Pilares */
+.p-p-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:16px}
+.p-p-title{font-size:13px;font-weight:700;color:#0f172a}
+.p-p-link{font-size:10px;color:var(--ca);font-weight:600}
 
-/* Reto */
-.p-reto{background:linear-gradient(135deg,rgba(255,107,53,.12),rgba(255,107,53,.03));
-  border:1px solid rgba(255,107,53,.22);border-radius:13px;padding:11px 12px;
-  display:flex;align-items:center;gap:10px}
-.p-ri{width:32px;height:32px;border-radius:9px;
-  background:linear-gradient(135deg,rgba(255,107,53,.25),rgba(255,107,53,.1));
-  display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;
-  border:1px solid rgba(255,107,53,.2)}
-.p-rt1{font-size:10.5px;font-weight:600;color:rgba(255,255,255,.9)}
-.p-rt2{font-size:8.5px;color:rgba(255,255,255,.4);margin-top:2px}
-.p-progress{height:3px;background:rgba(255,107,53,.15);border-radius:2px;margin-top:6px}
-.p-progress-fill{height:100%;width:60%;background:var(--warm);border-radius:2px}
+.p-pilares{display:flex;justify-content:space-between;margin-bottom:24px}
+.p-plr{display:flex;flex-direction:column;align-items:center;gap:8px}
+.p-plr-ico{width:58px;height:58px;border-radius:50%;background:#fff;border:1px solid #e2e8f0;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 10px rgba(0,0,0,.03);font-size:24px}
+.p-plr-tbl{font-size:9.5px;font-weight:600;color:#475569;text-align:center;line-height:1.1}
+
+/* Card Inferior */
+.p-card{background:#fff;border-radius:14px;box-shadow:0 4px 10px rgba(0,0,0,.03);padding:14px}
+.p-c-tag{font-size:8.5px;font-weight:700;color:#f59e0b;letter-spacing:.05em}
+.p-c-title{font-size:12px;font-weight:700;color:#0f172a;margin:6px 0}
+.p-c-row{display:flex;align-items:center;gap:6px;font-size:10px;color:#64748b;margin-bottom:5px}
+
+/* Navbar */
+.p-nav{position:absolute;bottom:0;left:0;right:0;background:#fff;border-top:1px solid #e2e8f0;padding:12px 20px 24px;display:flex;justify-content:space-between;border-radius:0 0 30px 30px}
+.p-ni{display:flex;flex-direction:column;align-items:center;gap:4px;color:#94a3b8;font-size:8px;font-weight:600}
+.p-ni.act{color:var(--ca)}
 
 /* Glow y float cards */
 .p-glow{position:absolute;width:360px;height:360px;
-  background:radial-gradient(circle,rgba(0,196,176,.13),transparent 65%);
+  background:radial-gradient(circle,rgba(0,196,176,.2),transparent 65%);
   border-radius:50%;z-index:1}
-.fcard{position:absolute;background:rgba(7,21,37,.94);backdrop-filter:blur(20px);
+.fcard{position:absolute;background:rgba(255,255,255,.95);backdrop-filter:blur(20px);
   border:1px solid var(--b4);border-radius:14px;padding:11px 16px;
   display:flex;align-items:center;gap:10px;white-space:nowrap;font-size:12.5px;
   box-shadow:0 20px 56px rgba(0,0,0,.4);animation:flt 5s ease-in-out infinite;z-index:3}
@@ -221,7 +213,7 @@ h1.h1{font-family:var(--fd);font-size:clamp(38px,4.2vw,64px);line-height:1.08;le
 .fcard.fc2{bottom:24px;left:-58px;animation-delay:1.8s}
 .fcard.fc3{top:38%;right:-68px;animation-delay:.9s}
 .fc-ico{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
-.fc-main{font-size:12.5px;font-weight:600;color:var(--t1)}.fc-sub{font-size:10.5px;color:var(--t3)}
+.fc-main{font-size:12.5px;font-weight:700;color:#091628}.fc-sub{font-size:10.5px;color:#64748b}
 @keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
 
 /* ══ TICKER ════════════════════════════════════════ */
@@ -977,41 +969,70 @@ footer{background:#020810;border-top:1px solid var(--b3);padding:76px 0 36px}
         <div class="p-screen">
           <!-- Header -->
           <div class="p-head">
-            <div><div class="p-gr">Buenos días,</div><div class="p-nm">Ana García ✨</div></div>
-            <div class="p-av"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=80&auto=format&fit=crop&crop=face" alt="Ana García"/></div>
-          </div>
-          <!-- Score card horizontal -->
-          <div class="p-score">
-            <div class="p-score-ring">
-              <svg viewBox="0 0 64 64" width="62" height="62" style="transform:rotate(-90deg)">
-                <circle cx="32" cy="32" r="26" stroke="rgba(0,196,176,.12)" stroke-width="5.5" fill="none"/>
-                <circle cx="32" cy="32" r="26" stroke="#00C4B0" stroke-width="5.5" fill="none" stroke-dasharray="163" stroke-dashoffset="28" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <div class="p-score-text">
-              <div class="p-snum">87</div>
-              <div class="p-slbl">BIENESTAR SCORE</div>
-              <div class="p-score-bar"><div class="p-score-bar-fill"></div></div>
+            <div class="p-logo"><span>CA</span> Assistance</div>
+            <div class="p-nm-box">
+              <div class="p-gr">¡Hola!</div>
+              <div class="p-nm">Sergio</div>
             </div>
           </div>
-          <!-- Stats -->
-          <div class="p-stats">
-            <div class="p-stat">
-              <div class="p-sv" style="color:#FF6B35">🔥 14</div>
-              <div class="p-sl">DÍAS RACHA</div>
-            </div>
-            <div class="p-stat">
-              <div class="p-sv" style="color:#A78BFA">💎 840</div>
-              <div class="p-sl">CARECOINS</div>
+          
+          <!-- Banner App -->
+          <div class="p-banner">
+            <div class="p-b-img"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=200&q=80&auto=format&fit=crop" alt=""/></div>
+            <div class="p-b-text">
+              <div>Tenemos una<br/><span>nueva versión</span></div>
             </div>
           </div>
-          <!-- Reto semanal -->
-          <div class="p-reto">
-            <div class="p-ri">🏆</div>
-            <div style="flex:1;min-width:0">
-              <div class="p-rt1">Reto semanal activo</div>
-              <div class="p-rt2">Meditación 5 días · 3/5 completado</div>
-              <div class="p-progress"><div class="p-progress-fill"></div></div>
+
+          <!-- Pilares -->
+          <div class="p-p-head">
+            <div class="p-p-title">Los Pilares de tu Bienestar</div>
+            <div class="p-p-link">Ver todo</div>
+          </div>
+          <div class="p-pilares">
+            <div class="p-plr">
+              <div class="p-plr-ico" style="color:#22c55e">🧠</div>
+              <div class="p-plr-tbl">Físico<br/>Emocional</div>
+            </div>
+            <div class="p-plr">
+              <div class="p-plr-ico" style="color:#3b82f6">📈</div>
+              <div class="p-plr-tbl">Financiero</div>
+            </div>
+            <div class="p-plr">
+              <div class="p-plr-ico" style="color:#0ea5e9">💬</div>
+              <div class="p-plr-tbl">Social</div>
+            </div>
+          </div>
+
+          <!-- Appt Card -->
+          <div class="p-card">
+            <div class="p-c-tag">A confirmar</div>
+            <div class="p-c-title">TELEMEDICINA</div>
+            <div class="p-c-row">
+              📅 <span>Lunes, 09 de diciembre de 2024</span>
+            </div>
+            <div class="p-c-row">
+              🕒 <span>7:20 AMhs.</span>
+            </div>
+          </div>
+
+          <!-- Navbar -->
+          <div class="p-nav">
+            <div class="p-ni act">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              Home
+            </div>
+            <div class="p-ni">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+              Programas
+            </div>
+            <div class="p-ni">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              Agenda
+            </div>
+            <div class="p-ni">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Perfil
             </div>
           </div>
         </div>
