@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Care Assistance — Bienestar Corporativo LATAM</title>
+<meta name="description" content="Ecosistema líder de bienestar corporativo en LATAM. Programas de alto impacto para equipos más sanos, felices y productivos."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* ══ CARE ASSISTANCE BRAND COLORS ══════════════════ */
+:root{
+  /* Primary - Teal turquesa Care Assistance */
+  --ca:#00C4B0;
+  --ca2:#00A898;
+  --ca3:#00DFD0;
+  --ca4:#E0FAF8;
+  --ca-glow:rgba(0,196,176,.25);
+  --ca-soft:rgba(0,196,176,.1);
+  --ca-mid:rgba(0,196,176,.18);
+
+  /* Secondary - naranja cálido */
+  --warm:#FF6B35;
+  --warm2:#E85A26;
+
+  /* Fondos - navy profundo */
+  --ink:#030C16;
+  --ink2:#071525;
+  --ink3:#0C1E34;
+  --ink4:#112540;
+  --ink5:#162C4A;
+
+  /* Texto */
+  --t1:rgba(255,255,255,.95);
+  --t2:rgba(255,255,255,.65);
+  --t3:rgba(255,255,255,.38);
+  --t4:rgba(255,255,255,.12);
+
+  /* Bordes */
+  --b1:rgba(0,196,176,.15);
+  --b2:rgba(0,196,176,.28);
+  --b3:rgba(255,255,255,.08);
+  --b4:rgba(255,255,255,.14);
+
+  --r:14px;--rl:22px;
+  --fd:'Syne',sans-serif;
+  --fb:'Plus Jakarta Sans',sans-serif;
+}
+
+html{scroll-behavior:smooth}
+body{font-family:var(--fb);background:var(--ink);color:var(--t1);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{width:3px}
+::-webkit-scrollbar-thumb{background:var(--ca2);border-radius:2px}
+
+/* Progress bar */
+#pb{position:fixed;top:0;left:0;height:3px;z-index:9999;width:0;
+  background:linear-gradient(90deg,var(--ca),var(--ca3),var(--warm));
+  box-shadow:0 0 12px var(--ca-glow);transition:width .12s}
+
+/* ══ NAV ══════════════════════════════════════════ */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;transition:all .35s}
+nav.sc{background:rgba(3,12,22,.93);backdrop-filter:blur(28px);border-bottom:1px solid var(--b3)}
+.nw{max-width:1240px;margin:0 auto;padding:0 36px;display:flex;align-items:center;justify-content:space-between;height:66px}
+.nl-logo{display:flex;align-items:center;text-decoration:none}
+.nl-logo img{height:36px;width:auto;object-fit:contain;transition:opacity .2s}
+.nlinks{display:flex;align-items:center;gap:2px;list-style:none}
+.nlinks a{font-size:13.5px;font-weight:500;color:var(--t2);text-decoration:none;padding:7px 13px;border-radius:8px;transition:all .2s;letter-spacing:-.01em}
+.nlinks a:hover{color:var(--t1);background:var(--t4)}
+.n-right{display:flex;align-items:center;gap:10px}
+.btn-login{font-family:var(--fb);font-size:13.5px;font-weight:500;color:var(--t2);background:none;border:1px solid var(--b4);padding:8px 18px;border-radius:8px;text-decoration:none;transition:all .2s}
+.btn-login:hover{color:var(--t1);border-color:rgba(255,255,255,.25)}
+.btn-cta-nav{font-family:var(--fb);font-size:13.5px;font-weight:600;color:var(--ink);background:var(--ca);padding:9px 22px;border-radius:8px;text-decoration:none;border:none;cursor:pointer;transition:all .25s;letter-spacing:-.01em}
+.btn-cta-nav:hover{background:var(--ca3);box-shadow:0 0 28px var(--ca-glow);transform:translateY(-1px)}
+.nhb{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:4px}
+.nhb span{width:21px;height:2px;background:var(--t2);border-radius:2px;transition:all .3s}
+
+/* ══ HERO ═════════════════════════════════════════ */
+#hero{min-height:100vh;position:relative;display:flex;align-items:center;overflow:hidden;background:var(--ink)}
+/* Fondo animado */
+.h-bg{position:absolute;inset:0}
+.h-mesh{position:absolute;inset:0;
+  background:radial-gradient(ellipse 100% 90% at 65% -5%,rgba(0,196,176,.14) 0%,transparent 52%),
+  radial-gradient(ellipse 70% 70% at -10% 80%,rgba(255,107,53,.07) 0%,transparent 45%),
+  radial-gradient(ellipse 50% 50% at 50% 120%,rgba(0,196,176,.06) 0%,transparent 50%),
+  var(--ink)}
+.h-grid{position:absolute;inset:0;opacity:.025;
+  background-image:linear-gradient(rgba(255,255,255,1) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,255,255,1) 1px,transparent 1px);
+  background-size:72px 72px;
+  mask-image:radial-gradient(ellipse 100% 100% at 50% 0%,black 20%,transparent 80%)}
+/* Orb decorativo */
+.h-orb{position:absolute;right:0;top:50%;transform:translateY(-50%);
+  width:620px;height:620px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,196,176,.06) 0%,transparent 65%);
+  pointer-events:none}
+
+.h-inner{max-width:1240px;margin:0 auto;padding:120px 36px 80px;position:relative;z-index:1;
+  display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:64px}
+
+/* Eyebrow pill */
+.h-pill{display:inline-flex;align-items:center;gap:8px;
+  background:rgba(0,196,176,.08);border:1px solid rgba(0,196,176,.22);
+  border-radius:50px;padding:5px 14px 5px 8px;margin-bottom:26px}
+.h-pill-dot{width:22px;height:22px;border-radius:50%;background:rgba(0,196,176,.15);
+  display:flex;align-items:center;justify-content:center}
+.h-pill-dot span{width:8px;height:8px;border-radius:50%;background:var(--ca);animation:blink 2s infinite}
+@keyframes blink{0%,100%{box-shadow:0 0 0 0 rgba(0,196,176,.6)}50%{box-shadow:0 0 0 6px rgba(0,196,176,0)}}
+.h-pill-txt{font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ca)}
+
+h1.h1{font-family:var(--fd);font-size:clamp(44px,5.5vw,78px);line-height:1.04;letter-spacing:-.04em;color:var(--t1);margin-bottom:22px}
+.h1 .g{
+  background:linear-gradient(120deg,var(--ca) 0%,#7FFFEF 35%,var(--ca3) 65%,#B8FFF6 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.h-sub{font-size:17px;line-height:1.72;color:var(--t2);max-width:500px;margin-bottom:38px;font-weight:400}
+
+/* CTA buttons */
+.h-btns{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin-bottom:52px}
+.btn-main{display:inline-flex;align-items:center;gap:9px;font-family:var(--fb);font-size:15px;font-weight:600;
+  padding:14px 28px;border-radius:12px;text-decoration:none;border:none;cursor:pointer;
+  background:var(--ca);color:var(--ink);letter-spacing:-.01em;
+  box-shadow:0 8px 32px var(--ca-glow),0 0 0 0 var(--ca-glow);
+  transition:all .28s}
+.btn-main:hover{background:var(--ca3);transform:translateY(-2px);box-shadow:0 16px 44px var(--ca-glow)}
+.btn-sec{display:inline-flex;align-items:center;gap:9px;font-family:var(--fb);font-size:15px;font-weight:500;
+  padding:14px 26px;border-radius:12px;text-decoration:none;border:none;cursor:pointer;
+  background:rgba(255,255,255,.05);color:var(--t1);border:1px solid var(--b4);
+  transition:all .25s;letter-spacing:-.01em}
+.btn-sec:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.22)}
+
+/* Trust row */
+.h-trust{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.htrust-item{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--t3);font-weight:400}
+.htrust-dot{width:5px;height:5px;border-radius:50%;background:var(--ca);flex-shrink:0}
+
+/* Teléfono mockup */
+.h-visual{position:relative;display:flex;justify-content:center;align-items:center}
+.phone{width:252px;background:linear-gradient(160deg,var(--ink3),var(--ink2));
+  border:1px solid var(--b4);border-radius:38px;padding:14px;
+  box-shadow:0 48px 96px rgba(0,0,0,.6),inset 0 1px 0 rgba(255,255,255,.07);
+  position:relative;z-index:2}
+.p-notch{width:86px;height:26px;background:var(--ink);border-radius:0 0 16px 16px;margin:0 auto 14px}
+.p-screen{background:var(--ink4);border-radius:26px;overflow:hidden;padding:18px}
+.p-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.p-gr{font-size:10px;color:var(--t3)}.p-nm{font-size:13px;font-weight:700;color:var(--t1)}
+.p-av{width:32px;height:32px;border-radius:50%;overflow:hidden;border:2px solid var(--ca)}
+.p-av img{width:100%;height:100%;object-fit:cover}
+/* Score ring */
+.p-score{background:linear-gradient(135deg,rgba(0,196,176,.1),rgba(0,196,176,.04));
+  border:1px solid rgba(0,196,176,.18);border-radius:16px;padding:16px;margin-bottom:12px;text-align:center}
+.p-score-ring{width:56px;height:56px;margin:0 auto 6px;position:relative}
+.p-snum{font-family:var(--fd);font-size:36px;font-weight:800;color:var(--ca);letter-spacing:-.04em}
+.p-slbl{font-size:10px;color:var(--t3)}
+.p-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.p-stat{background:rgba(255,255,255,.04);border:1px solid var(--b3);border-radius:11px;padding:11px}
+.p-sv{font-size:16px;font-weight:700}.p-sl{font-size:9px;color:var(--t3);margin-top:1px}
+.p-reto{background:linear-gradient(135deg,rgba(255,107,53,.1),rgba(255,107,53,.04));
+  border:1px solid rgba(255,107,53,.2);border-radius:11px;padding:11px;
+  display:flex;align-items:center;gap:9px}
+.p-ri{width:30px;height:30px;border-radius:8px;background:rgba(255,107,53,.18);
+  display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.p-rt1{font-size:10.5px;font-weight:600;color:var(--t1)}.p-rt2{font-size:9px;color:var(--t3);margin-top:1px}
+
+/* Glow y float cards */
+.p-glow{position:absolute;width:300px;height:300px;
+  background:radial-gradient(circle,rgba(0,196,176,.1),transparent 65%);border-radius:50%;z-index:1}
+.fcard{position:absolute;background:rgba(7,21,37,.94);backdrop-filter:blur(20px);
+  border:1px solid var(--b4);border-radius:14px;padding:11px 16px;
+  display:flex;align-items:center;gap:10px;white-space:nowrap;font-size:12.5px;
+  box-shadow:0 20px 56px rgba(0,0,0,.4);animation:flt 5s ease-in-out infinite;z-index:3}
+.fcard.fc1{top:-24px;right:-28px;animation-delay:0s}
+.fcard.fc2{bottom:24px;left:-58px;animation-delay:1.8s}
+.fcard.fc3{top:38%;right:-68px;animation-delay:.9s}
+.fc-ico{width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0}
+.fc-main{font-size:12.5px;font-weight:600;color:var(--t1)}.fc-sub{font-size:10.5px;color:var(--t3)}
+@keyframes flt{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+
+/* ══ TICKER ════════════════════════════════════════ */
+.ticker{border-top:1px solid var(--b3);border-bottom:1px solid var(--b3);
+  padding:18px 0;overflow:hidden;background:linear-gradient(90deg,var(--ink),var(--ink2),var(--ink))}
+.ticker-lbl{text-align:center;font-size:10.5px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--t3);margin-bottom:14px}
+.ticker-wrap{display:flex;overflow:hidden}
+.ticker-row{display:flex;align-items:center;gap:60px;
+  animation:tick 28s linear infinite;flex-shrink:0;padding:0 30px}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+.t-logo{font-family:var(--fd);font-size:13.5px;font-weight:700;letter-spacing:-.02em;
+  color:rgba(255,255,255,.2);white-space:nowrap;transition:color .3s}
+.t-logo:hover{color:rgba(255,255,255,.5)}
+
+/* ══ SECCIÓN GENÉRICA ══════════════════════════════ */
+section{padding:110px 0}
+.w{max-width:1240px;margin:0 auto;padding:0 36px}
+.tag{display:inline-flex;align-items:center;gap:6px;
+  font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ca);margin-bottom:14px}
+.tag::before{content:'';width:14px;height:2px;background:var(--ca);border-radius:1px}
+h2.h2{font-family:var(--fd);font-size:clamp(30px,3.8vw,52px);line-height:1.1;
+  letter-spacing:-.035em;color:var(--t1);margin-bottom:14px}
+h2.h2 em{font-style:italic;color:var(--ca)}
+.sub{font-size:16.5px;line-height:1.72;color:var(--t2);max-width:540px}
+
+/* ══ BENEFICIOS ════════════════════════════════════ */
+#beneficios{background:var(--ink2);position:relative;overflow:hidden}
+#beneficios::after{content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--ca),transparent)}
+.bens{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.bens-img{position:relative;border-radius:var(--rl);overflow:hidden}
+.bens-img img{width:100%;height:520px;object-fit:cover;display:block;
+  transition:transform .5s;filter:saturate(.92)}
+.bens-img:hover img{transform:scale(1.03)}
+.bens-img-overlay{position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(0,196,176,.18),transparent 55%),
+  linear-gradient(0deg,rgba(3,12,22,.55) 0%,transparent 50%)}
+/* Stat badges sobre la imagen */
+.bens-badge{position:absolute;bottom:24px;left:24px;right:24px;
+  display:flex;gap:12px}
+.bbadge{flex:1;background:rgba(3,12,22,.85);backdrop-filter:blur(16px);
+  border:1px solid var(--b4);border-radius:14px;padding:14px 18px;
+  display:flex;align-items:center;gap:12px}
+.bbadge-ico{width:40px;height:40px;border-radius:10px;flex-shrink:0;
+  background:rgba(0,196,176,.12);border:1px solid var(--b1);
+  display:flex;align-items:center;justify-content:center;font-size:18px}
+.bbadge-num{font-family:var(--fd);font-size:22px;font-weight:800;color:var(--ca);line-height:1}
+.bbadge-lbl{font-size:11px;color:var(--t3);margin-top:2px}
+/* Bens list */
+.bens-list{display:flex;flex-direction:column;gap:18px;margin-top:36px}
+.ben-item{display:flex;align-items:flex-start;gap:18px;padding:22px;
+  background:var(--ink3);border:1px solid var(--b3);border-radius:var(--r);
+  transition:all .28s}
+.ben-item:hover{border-color:var(--b1);background:var(--ink4);transform:translateX(4px)}
+.ben-ico{width:46px;height:46px;border-radius:12px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:20px;
+  transition:transform .3s}
+.ben-item:hover .ben-ico{transform:scale(1.1)}
+.ben-h{font-size:15px;font-weight:700;color:var(--t1);margin-bottom:4px;letter-spacing:-.02em}
+.ben-p{font-size:13px;color:var(--t2);line-height:1.6}
+
+/* ══ PROBLEMA ══════════════════════════════════════ */
+#problema{background:var(--ink)}
+.prob-layout{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+/* Quote block */
+.quote-block{margin-top:36px;padding:28px;
+  background:linear-gradient(135deg,rgba(255,107,53,.06),rgba(255,107,53,.02));
+  border:1px solid rgba(255,107,53,.18);border-left:3px solid var(--warm);
+  border-radius:0 var(--r) var(--r) 0}
+.quote-text{font-size:15px;color:var(--t1);line-height:1.72;font-style:italic}
+.quote-src{font-size:11.5px;color:var(--t3);margin-top:10px}
+/* Stats 2x2 */
+.pstats{display:grid;grid-template-columns:1fr 1fr;gap:2px;
+  border-radius:var(--rl);overflow:hidden;background:var(--b3)}
+.pst{background:var(--ink2);padding:34px 26px;position:relative;overflow:hidden;transition:background .28s}
+.pst:hover{background:var(--ink3)}
+.pst::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .28s;
+  background:radial-gradient(circle at 0% 100%,rgba(0,196,176,.05),transparent 60%)}
+.pst:hover::before{opacity:1}
+.pst-n{font-family:var(--fd);font-size:clamp(34px,4vw,50px);font-weight:800;
+  letter-spacing:-.04em;margin-bottom:8px;display:block}
+.pst-d{font-size:13.5px;color:var(--t2);line-height:1.55}
+.pst-s{font-size:10.5px;color:var(--t3);margin-top:7px}
+
+/* ══ PILARES 3 - NUEVO DISEÑO PREMIUM ══════════════ */
+.pil3-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.pil3-card{background:var(--ink3);border:1px solid var(--b3);border-radius:var(--rl);overflow:hidden;
+  transition:all .35s;position:relative}
+.pil3-card:hover{border-color:var(--b2);transform:translateY(-6px);
+  box-shadow:0 32px 72px rgba(0,0,0,.4)}
+.pil3-featured{border-color:var(--b2)}
+
+/* Imagen superior */
+.pil3-img-wrap{position:relative;height:220px;overflow:hidden}
+.pil3-img-wrap img{width:100%;height:100%;object-fit:cover;
+  filter:saturate(.7) brightness(.6);transition:all .5s}
+.pil3-card:hover .pil3-img-wrap img{filter:saturate(.9) brightness(.75);transform:scale(1.05)}
+.pil3-overlay{position:absolute;inset:0;
+  background:linear-gradient(155deg,var(--gc1) 0%,transparent 45%),
+  linear-gradient(0deg,var(--gc2) 0%,transparent 55%)}
+
+/* Número grande decorativo */
+.pil3-number{position:absolute;top:14px;left:18px;
+  font-family:var(--fd);font-size:52px;font-weight:800;
+  color:rgba(255,255,255,.08);letter-spacing:-.05em;line-height:1;
+  pointer-events:none;user-select:none}
+
+/* Badge flotante sobre la imagen */
+.pil3-badge{position:absolute;bottom:14px;right:14px;
+  font-size:10.5px;font-weight:700;letter-spacing:.04em;
+  background:rgba(3,12,22,.75);backdrop-filter:blur(12px);
+  border:1px solid;border-radius:50px;padding:5px 12px}
+
+/* Cuerpo de la card */
+.pil3-body{padding:28px}
+
+/* Icono */
+.pil3-icon-wrap{width:58px;height:58px;border-radius:16px;border:1px solid;
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:18px;transition:transform .3s}
+.pil3-card:hover .pil3-icon-wrap{transform:scale(1.1) rotate(-4deg)}
+
+/* Título */
+.pil3-title{font-family:var(--fd);font-size:22px;font-weight:800;
+  color:var(--t1);line-height:1.15;letter-spacing:-.03em;margin-bottom:12px}
+
+/* Descripción */
+.pil3-desc{font-size:13.5px;color:var(--t2);line-height:1.7;margin-bottom:18px}
+
+/* Chips de colores */
+.pil3-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px}
+.pil3-chip{font-size:11px;font-weight:600;padding:4px 11px;border-radius:50px;
+  background:var(--cc);color:var(--ct);border:1px solid color-mix(in srgb,var(--ct) 40%,transparent);
+  transition:all .2s}
+.pil3-chip:hover{transform:scale(1.05)}
+
+/* Estadística */
+.pil3-stat{padding-top:18px;border-top:1px solid var(--b3)}
+.pil3-stat-num{font-family:var(--fd);font-size:32px;font-weight:800;
+  letter-spacing:-.04em;line-height:1;margin-bottom:4px}
+.pil3-stat-lbl{font-size:11.5px;color:var(--t3);line-height:1.5}
+
+@media(max-width:900px){.pil3-grid{grid-template-columns:1fr}}
+
+/* ══ PILARES ════════════════════════════════════════ */
+#pilares{background:var(--ink2);position:relative}
+#pilares::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent 0%,var(--ca) 50%,transparent 100%)}
+.pil-head{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:end;margin-bottom:56px}
+.pil-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;
+  background:var(--b3);border-radius:var(--rl);overflow:hidden}
+.pil-card{background:var(--ink3);position:relative;overflow:hidden;cursor:default;transition:background .28s}
+.pil-card:hover{background:var(--ink4)}
+.pil-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:var(--ac,var(--ca));transform:scaleX(0);transition:transform .3s}
+.pil-card:hover::after{transform:scaleX(1)}
+.pil-img{width:100%;height:150px;object-fit:cover;
+  filter:saturate(.7) brightness(.72);transition:filter .35s}
+.pil-card:hover .pil-img{filter:saturate(.95) brightness(.82)}
+.pil-body{padding:26px}
+.pil-ico{width:44px;height:44px;border-radius:12px;display:flex;align-items:center;
+  justify-content:center;font-size:20px;margin-bottom:14px;transition:transform .3s}
+.pil-card:hover .pil-ico{transform:scale(1.08) rotate(-4deg)}
+.pil-card h3{font-family:var(--fd);font-size:16px;font-weight:700;color:var(--t1);
+  margin-bottom:8px;letter-spacing:-.02em}
+.pil-card p{font-size:13px;color:var(--t2);line-height:1.64}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:12px}
+.chip{font-size:10px;font-weight:600;padding:3px 9px;border-radius:50px;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--t2)}
+
+/* ══ PLATAFORMA ════════════════════════════════════ */
+#plataforma{background:var(--ink);position:relative;overflow:hidden}
+#plataforma::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 50% at 100% 50%,rgba(255,107,53,.04),transparent)}
+.plat-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:72px;align-items:start;position:relative;z-index:1}
+.ptabs{margin-top:36px;display:flex;flex-direction:column;gap:3px}
+.ptab{display:flex;gap:16px;align-items:flex-start;padding:18px;border-radius:var(--r);
+  cursor:pointer;transition:all .22s;border:1px solid transparent}
+.ptab:hover{background:rgba(255,255,255,.03)}
+.ptab.act{background:var(--ink2);border-color:var(--b3)}
+.ptab-n{width:27px;height:27px;flex-shrink:0;border-radius:7px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:11px;font-weight:700;background:rgba(255,255,255,.05);color:var(--t3);
+  transition:all .22s;margin-top:2px}
+.ptab.act .ptab-n{background:var(--ca);color:var(--ink)}
+.ptab-t{font-size:14.5px;font-weight:600;color:var(--t2);margin-bottom:3px;transition:color .22s}
+.ptab.act .ptab-t{color:var(--t1)}
+.ptab-d{font-size:12.5px;color:var(--t3);line-height:1.6}
+/* Dashboard */
+.dash{background:var(--ink2);border:1px solid var(--b4);border-radius:var(--rl);
+  overflow:hidden;position:sticky;top:100px;
+  box-shadow:0 40px 96px rgba(0,0,0,.5)}
+.dash-bar{background:var(--ink3);padding:13px 18px;
+  display:flex;align-items:center;gap:14px;border-bottom:1px solid var(--b3)}
+.dash-dots{display:flex;gap:5px}
+.dd{width:10px;height:10px;border-radius:50%}
+.dash-ttl{flex:1;text-align:center;font-size:11.5px;color:var(--t3);font-weight:500}
+.dash-body{padding:20px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.dk{background:var(--ink3);border:1px solid var(--b3);border-radius:11px;padding:14px}
+.dkv{font-family:var(--fd);font-size:24px;font-weight:800;letter-spacing:-.04em;color:var(--t1)}
+.dkl{font-size:9.5px;color:var(--t3);margin-top:1px}
+.dkc{font-size:10.5px;font-weight:600;margin-top:5px}
+.dkc.up{color:var(--ca)}.dkc.dn{color:var(--warm)}
+.dash-chart{grid-column:1/-1;background:var(--ink3);border:1px solid var(--b3);
+  border-radius:11px;padding:18px}
+.dc-lbl{font-size:10.5px;color:var(--t3);margin-bottom:14px}
+.dc-bars{display:flex;align-items:flex-end;gap:7px;height:75px;padding-bottom:20px;position:relative}
+.dc-bar{flex:1;border-radius:4px 4px 0 0;background:rgba(0,196,176,.14);position:relative;transition:height 1.2s ease}
+.dc-bar.act{background:var(--ca)}
+.dc-bar::after{content:attr(data-l);position:absolute;bottom:-18px;left:50%;
+  transform:translateX(-50%);font-size:9px;color:var(--t3);white-space:nowrap}
+.dash-row2{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.da{background:var(--ink3);border:1px solid var(--b3);border-radius:11px;padding:14px}
+.da-t{font-size:10px;color:var(--t3);margin-bottom:10px}
+.da-i{display:flex;align-items:center;gap:9px;padding:7px 0;border-bottom:1px solid var(--b3)}
+.da-i:last-child{border:none}
+.da-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
+.da-txt{font-size:11.5px;color:var(--t2)}.da-tm{font-size:10px;color:var(--t3);margin-left:auto}
+
+/* ══ MÉTRICAS HERO ═════════════════════════════════ */
+#metrics{background:var(--ink2);position:relative;overflow:hidden}
+#metrics::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 70% 80% at 20% 50%,rgba(0,196,176,.07),transparent),
+  radial-gradient(ellipse 50% 60% at 80% 50%,rgba(255,107,53,.05),transparent)}
+.metrics-inner{position:relative;z-index:1}
+.m-top{display:grid;grid-template-columns:1fr 1fr;gap:96px;align-items:center;margin-bottom:88px}
+.m-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;
+  background:var(--b3);border-radius:var(--rl);overflow:hidden}
+.m-box{background:var(--ink3);padding:38px 32px;text-align:center;
+  position:relative;overflow:hidden;transition:background .28s}
+.m-box:hover{background:var(--ink4)}
+.m-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--mc,var(--ca))}
+.m-num{font-family:var(--fd);font-size:clamp(38px,5vw,60px);font-weight:800;
+  letter-spacing:-.05em;display:block;margin-bottom:8px}
+.mc{color:var(--ca)}.mo{color:var(--warm)}.mg{color:#4ADE80}.mb{color:#60A5FA}
+.m-lbl{font-size:13.5px;color:var(--t2);line-height:1.4}
+.m-src{font-size:10px;color:var(--t3);margin-top:7px}
+/* Country badges */
+.m-countries{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:44px}
+.m-country{background:var(--ink3);border:1px solid var(--b3);border-radius:10px;
+  padding:9px 14px;font-size:12.5px;font-weight:600;color:var(--t3);
+  display:flex;align-items:center;gap:7px;transition:all .25s}
+.m-country:hover{color:var(--t1);border-color:var(--b4)}
+/* Steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--b3);border-radius:var(--rl);overflow:hidden}
+.step{background:var(--ink3);padding:40px 26px;transition:background .28s}
+.step:hover{background:var(--ink4)}
+.step-n{width:46px;height:46px;border-radius:12px;font-family:var(--fd);
+  font-size:16px;font-weight:800;display:flex;align-items:center;justify-content:center;
+  margin-bottom:20px}
+.step h4{font-family:var(--fd);font-size:16px;font-weight:700;color:var(--t1);
+  margin-bottom:8px;letter-spacing:-.02em}
+.step p{font-size:13px;color:var(--t2);line-height:1.65}
+.step ul{list-style:none;margin-top:10px}
+.step li{font-size:12px;color:var(--t3);padding:3px 0;display:flex;align-items:center;gap:6px}
+.step li::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--ca);flex-shrink:0}
+
+/* ══ GALERÍA ════════════════════════════════════════ */
+#galeria{background:var(--ink);padding:0}
+.gal-grid{display:grid;grid-template-columns:2fr 1fr 1fr;grid-template-rows:260px 260px;gap:3px}
+.gal-item{overflow:hidden;position:relative}
+.gal-item:first-child{grid-row:1/3}
+.gal-item img{width:100%;height:100%;object-fit:cover;
+  filter:saturate(.7) brightness(.75);transition:all .5s}
+.gal-item:hover img{filter:saturate(1) brightness(.9);transform:scale(1.04)}
+.gal-overlay{position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.65))}
+.gal-label{position:absolute;bottom:18px;left:20px;
+  font-size:12.5px;font-weight:600;color:rgba(255,255,255,.8)}
+
+/* ══ TESTIMONIOS ════════════════════════════════════ */
+#testi{background:var(--ink2)}
+.t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.t-card{background:var(--ink3);border:1px solid var(--b3);border-radius:var(--rl);
+  padding:32px;transition:all .28s;position:relative;overflow:hidden}
+.t-card:hover{border-color:var(--b2);transform:translateY(-4px);
+  box-shadow:0 24px 56px rgba(0,0,0,.3)}
+.t-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--tc,rgba(0,196,176,.5)),transparent)}
+.t-stars{display:flex;gap:3px;margin-bottom:18px}
+.star{width:13px;height:13px;background:#FFB800;
+  clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%)}
+.t-q{font-size:14.5px;line-height:1.72;color:var(--t1);margin-bottom:26px;font-style:italic}
+.t-au{display:flex;align-items:center;gap:12px}
+.t-av{width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;
+  border:2px solid var(--b4)}
+.t-av img{width:100%;height:100%;object-fit:cover}
+.t-nm{font-size:13.5px;font-weight:700;color:var(--t1)}
+.t-ro{font-size:11.5px;color:var(--t3);margin-top:1px}
+.t-co{font-size:11px;font-weight:600;color:var(--ca);margin-top:2px}
+
+/* ══ PRICING ════════════════════════════════════════ */
+#pricing{background:var(--ink)}
+.p-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+  background:var(--b3);border-radius:var(--rl);overflow:hidden;margin-top:60px}
+.pc{background:var(--ink2);padding:42px 32px;position:relative;overflow:hidden;transition:background .28s}
+.pc:hover{background:var(--ink3)}
+.pc.ft{background:linear-gradient(160deg,#081E1B,#071420)}
+.pc.ft::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 0%,rgba(0,196,176,.1),transparent 55%)}
+.pbdg{display:inline-flex;align-items:center;gap:6px;background:var(--ca);color:var(--ink);
+  font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 10px;border-radius:50px;margin-bottom:22px}
+.pnm{font-family:var(--fd);font-size:19px;font-weight:700;color:var(--t1);
+  margin-bottom:7px;letter-spacing:-.02em}
+.pds{font-size:13.5px;color:var(--t2);margin-bottom:26px;line-height:1.55}
+.pcta{display:block;text-align:center;font-family:var(--fb);font-size:14px;font-weight:600;
+  padding:11px 22px;border-radius:10px;text-decoration:none;border:none;cursor:pointer;
+  transition:all .25s;margin-bottom:28px;letter-spacing:-.01em}
+.pcta.g{background:var(--ca);color:var(--ink)}
+.pcta.g:hover{background:var(--ca3);box-shadow:0 8px 24px var(--ca-glow)}
+.pcta.gh{background:rgba(255,255,255,.05);color:var(--t1);border:1px solid var(--b4)}
+.pcta.gh:hover{background:rgba(255,255,255,.08);color:var(--t1)}
+.pfl{list-style:none}
+.pfi{display:flex;align-items:flex-start;gap:9px;padding:7px 0;
+  border-bottom:1px solid var(--b3);font-size:13.5px;color:var(--t2)}
+.pfi:last-child{border:none}
+.pfch{width:17px;height:17px;flex-shrink:0;border-radius:50%;
+  background:rgba(0,196,176,.1);border:1px solid rgba(0,196,176,.28);
+  display:flex;align-items:center;justify-content:center;margin-top:2px}
+
+/* ══ FAQ ════════════════════════════════════════════ */
+#faq{background:var(--ink2)}
+.faq-layout{display:grid;grid-template-columns:1fr 1.5fr;gap:72px;align-items:start}
+.faq-list{display:flex;flex-direction:column;gap:2px}
+.fi{background:var(--ink3);border:1px solid var(--b3);border-radius:var(--r);overflow:hidden;transition:border-color .25s}
+.fi.op{border-color:var(--b2)}
+.fq{display:flex;justify-content:space-between;align-items:center;
+  padding:18px 22px;cursor:pointer;font-size:14.5px;font-weight:600;
+  color:var(--t1);user-select:none;gap:14px;transition:color .2s}
+.fq:hover{color:var(--ca)}
+.ftog{width:26px;height:26px;flex-shrink:0;background:rgba(255,255,255,.05);
+  border-radius:7px;display:flex;align-items:center;justify-content:center;
+  transition:all .28s;font-size:13px;color:var(--t3)}
+.fi.op .ftog{background:rgba(0,196,176,.1);color:var(--ca);transform:rotate(45deg)}
+.fa{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .3s;padding:0 22px}
+.fi.op .fa{max-height:180px;padding:0 22px 18px}
+.fa p{font-size:13.5px;color:var(--t2);line-height:1.7}
+/* Faq side */
+.faq-side-img{width:100%;height:200px;object-fit:cover;border-radius:var(--r);
+  opacity:.55;margin-top:28px}
+
+/* ══ CTA FINAL ══════════════════════════════════════ */
+#ctaf{position:relative;overflow:hidden;background:var(--ink)}
+.ctaf-bg{position:absolute;inset:0;
+  background:radial-gradient(ellipse 100% 80% at 50% 100%,rgba(0,196,176,.1),transparent),
+  radial-gradient(ellipse 50% 50% at 5% 20%,rgba(255,107,53,.07),transparent)}
+.ctaf-grid{position:absolute;inset:0;opacity:.025;
+  background-image:linear-gradient(rgba(255,255,255,1) 1px,transparent 1px),
+  linear-gradient(90deg,rgba(255,255,255,1) 1px,transparent 1px);
+  background-size:56px 56px}
+.ctaf-inner{position:relative;z-index:1;text-align:center;max-width:700px;margin:0 auto}
+.ctaf-pill{display:inline-flex;align-items:center;gap:8px;
+  background:rgba(0,196,176,.08);border:1px solid rgba(0,196,176,.22);
+  border-radius:50px;padding:5px 14px 5px 8px;margin-bottom:26px}
+.ctaf-pill-d{width:20px;height:20px;border-radius:50%;
+  background:rgba(0,196,176,.15);display:flex;align-items:center;justify-content:center}
+.ctaf-pill-d span{width:8px;height:8px;border-radius:50%;background:var(--ca)}
+.ctaf-pill-t{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--ca)}
+.ctaf-form{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:36px 0 18px}
+.ctaf-inp{flex:1;min-width:210px;max-width:290px;
+  background:rgba(255,255,255,.05);border:1px solid var(--b4);border-radius:11px;
+  padding:13px 18px;font-family:var(--fb);font-size:14.5px;color:var(--t1);outline:none;
+  transition:border-color .28s;letter-spacing:-.01em}
+.ctaf-inp::placeholder{color:var(--t3)}
+.ctaf-inp:focus{border-color:var(--ca);box-shadow:0 0 0 3px rgba(0,196,176,.1)}
+.ctaf-note{font-size:12.5px;color:var(--t3)}
+.ctaf-note a{color:var(--t2);text-decoration:underline}
+
+/* ══ FOOTER ═════════════════════════════════════════ */
+footer{background:#020810;border-top:1px solid var(--b3);padding:76px 0 36px}
+.foot{max-width:1240px;margin:0 auto;padding:0 36px}
+.foot-top{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr 1fr;gap:44px;
+  padding-bottom:60px;border-bottom:1px solid var(--b3)}
+.foot-logo img{height:34px;width:auto;margin-bottom:14px;display:block}
+.foot-desc{font-size:13.5px;color:var(--t3);line-height:1.7;max-width:270px;margin-bottom:22px}
+.foot-certs{display:flex;align-items:center;gap:7px;margin-bottom:22px}
+.fcert{background:rgba(0,196,176,.07);border:1px solid rgba(0,196,176,.15);
+  border-radius:7px;padding:4px 10px;font-size:11px;font-weight:700;color:var(--ca)}
+.foot-soc{display:flex;gap:7px}
+.fsoc{width:34px;height:34px;border-radius:8px;background:rgba(255,255,255,.05);
+  border:1px solid var(--b3);display:flex;align-items:center;justify-content:center;
+  color:var(--t3);text-decoration:none;font-size:12.5px;font-weight:700;transition:all .22s}
+.fsoc:hover{background:var(--ca);color:var(--ink);border-color:var(--ca)}
+.fc5 h5{font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--t3);margin-bottom:18px}
+.fc5 ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.fc5 a{font-size:13.5px;color:rgba(255,255,255,.35);text-decoration:none;transition:color .2s}
+.fc5 a:hover{color:var(--t1)}
+.foot-bot{margin-top:28px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.fc{font-size:12.5px;color:var(--t3)}
+.ffg{display:flex;gap:6px}
+.ffl{font-size:18px;padding:4px 7px;background:rgba(255,255,255,.05);border-radius:5px;cursor:default;transition:background .2s}
+.ffl:hover{background:rgba(255,255,255,.09)}
+.fls{display:flex;gap:18px}
+.fls a{font-size:12.5px;color:var(--t3);text-decoration:none;transition:color .2s}
+.fls a:hover{color:var(--t1)}
+
+/* ══ ANIMACIONES ════════════════════════════════════ */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+.rv.vis{opacity:1;transform:translateY(0)}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
+
+/* ══ RESPONSIVE ═════════════════════════════════════ */
+@media(max-width:1080px){
+  .plat-grid{grid-template-columns:1fr}.dash{position:static}
+  .prob-layout{grid-template-columns:1fr}
+  .m-top{grid-template-columns:1fr}
+  .bens{grid-template-columns:1fr}
+  .foot-top{grid-template-columns:1fr 1fr}
+  .p-grid{grid-template-columns:1fr}
+  .faq-layout{grid-template-columns:1fr}
+  .pil-head{grid-template-columns:1fr}
+}
+@media(max-width:820px){
+  nav .nlinks{display:none}
+  nav .nlinks.open{display:flex;flex-direction:column;position:fixed;inset:0;
+    top:66px;background:rgba(3,12,22,.97);backdrop-filter:blur(22px);z-index:999;
+    padding:36px 28px;gap:6px;align-items:flex-start}
+  nav .nlinks.open a{font-size:17px;padding:10px 0}
+  .nhb{display:flex}.n-right .btn-login{display:none}
+  .h-inner{grid-template-columns:1fr;padding:100px 22px 56px}
+  .h-visual{display:none}
+  .pil-grid{grid-template-columns:1fr 1fr}
+  .t-grid{grid-template-columns:1fr}
+  .m-grid{grid-template-columns:1fr 1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .gal-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .gal-item:first-child{grid-row:auto}
+  section{padding:80px 0}.w{padding:0 22px}
+}
+@media(max-width:520px){
+  .pil-grid{grid-template-columns:1fr}
+  .pstats{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr}
+  .m-grid{grid-template-columns:1fr}
+  .p-grid{grid-template-columns:1fr}
+  .foot-top{grid-template-columns:1fr}
+  .gal-grid{grid-template-columns:1fr 1fr;grid-auto-rows:180px}
+}
+
+/* ══ TECH SECTION ADICIONAL ════════════════════════ */
+/* Partículas CSS en hero */
+.particles{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.particle{position:absolute;border-radius:50%;animation:particleFloat linear infinite}
+@keyframes particleFloat{0%{transform:translateY(100vh) scale(0);opacity:0}20%{opacity:.6}80%{opacity:.4}100%{transform:translateY(-100px) scale(1);opacity:0}}
+
+/* ══ TECH STACK / IA SECTION ════════════════════════ */
+#tecnologia{background:var(--ink);position:relative;overflow:hidden}
+#tecnologia::before{content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle at 20% 80%,rgba(0,196,176,.07),transparent 45%),
+  radial-gradient(circle at 80% 20%,rgba(255,107,53,.05),transparent 40%)}
+/* Circuit pattern */
+#tecnologia::after{content:'';position:absolute;inset:0;opacity:.04;
+  background-image:
+    linear-gradient(rgba(0,196,176,1) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,196,176,1) 1px,transparent 1px),
+    linear-gradient(rgba(0,196,176,.3) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,196,176,.3) 1px,transparent 1px);
+  background-size:80px 80px,80px 80px,20px 20px,20px 20px}
+
+.tech-hero{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;margin-bottom:80px}
+.tech-visual{position:relative}
+.tech-img-main{width:100%;height:440px;object-fit:cover;border-radius:var(--rl);
+  filter:saturate(.85) brightness(.8);
+  box-shadow:0 0 80px rgba(0,196,176,.12),0 40px 80px rgba(0,0,0,.5)}
+.tech-img-overlay{position:absolute;inset:0;border-radius:var(--rl);
+  background:linear-gradient(135deg,rgba(0,196,176,.12) 0%,transparent 50%),
+  linear-gradient(0deg,rgba(3,12,22,.6) 0%,transparent 40%)}
+
+/* Floating tech badges */
+.t-badge{position:absolute;background:rgba(3,12,22,.9);backdrop-filter:blur(20px);
+  border-radius:14px;padding:13px 17px;border:1px solid var(--b4);
+  box-shadow:0 16px 48px rgba(0,0,0,.4);animation:flt 5s ease-in-out infinite}
+.t-badge.tb1{top:20px;left:20px;animation-delay:0s}
+.t-badge.tb2{top:20px;right:20px;animation-delay:1.5s}
+.t-badge.tb3{bottom:20px;left:20px;animation-delay:.8s}
+.t-badge.tb4{bottom:20px;right:20px;animation-delay:2.2s}
+.tb-ico{font-size:20px;margin-bottom:5px}
+.tb-val{font-family:var(--fd);font-size:20px;font-weight:800;color:var(--ca);letter-spacing:-.03em}
+.tb-lbl{font-size:10px;color:var(--t3)}
+
+/* AI pillars horizontal */
+.tech-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+  background:var(--b3);border-radius:var(--rl);overflow:hidden}
+.tech-card{background:var(--ink2);padding:32px 24px;position:relative;overflow:hidden;
+  transition:background .28s;cursor:default}
+.tech-card:hover{background:var(--ink3)}
+.tech-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:var(--tc,var(--ca));transform:scaleX(0);transition:transform .3s}
+.tech-card:hover::before{transform:scaleX(1)}
+.tc-ico{width:52px;height:52px;border-radius:14px;display:flex;align-items:center;
+  justify-content:center;font-size:24px;margin-bottom:18px;transition:transform .3s}
+.tech-card:hover .tc-ico{transform:scale(1.08) rotate(-3deg)}
+.tc-title{font-family:var(--fd);font-size:16px;font-weight:700;color:var(--t1);margin-bottom:8px}
+.tc-desc{font-size:13px;color:var(--t2);line-height:1.65}
+.tc-stat{margin-top:14px;padding-top:14px;border-top:1px solid var(--b3)}
+.tc-stat-num{font-family:var(--fd);font-size:22px;font-weight:800;color:var(--ca);letter-spacing:-.03em}
+.tc-stat-lbl{font-size:10px;color:var(--t3)}
+
+/* ══ WEARABLES SECTION ══════════════════════════════ */
+#wearables{background:var(--ink2);position:relative;overflow:hidden}
+#wearables::before{content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 80% 80% at 50% 50%,rgba(0,196,176,.05),transparent)}
+.wear-layout{display:grid;grid-template-columns:1.1fr 1fr;gap:72px;align-items:center}
+.wear-devices{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.wear-device{background:var(--ink3);border:1px solid var(--b4);border-radius:var(--rl);
+  overflow:hidden;position:relative;transition:all .3s}
+.wear-device:hover{border-color:var(--b2);transform:translateY(-4px);
+  box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.wear-device.featured{grid-column:1/-1}
+.wear-device img{width:100%;object-fit:cover;display:block;
+  filter:saturate(.85) brightness(.75);transition:filter .35s}
+.wear-device:hover img{filter:saturate(1) brightness(.85)}
+.wear-device.featured img{height:220px}
+.wear-device:not(.featured) img{height:160px}
+.wear-device-label{position:absolute;bottom:14px;left:14px;right:14px;
+  background:rgba(3,12,22,.8);backdrop-filter:blur(10px);
+  border-radius:10px;padding:10px 14px;
+  display:flex;align-items:center;justify-content:space-between}
+.wdl-name{font-size:12px;font-weight:600;color:var(--t1)}
+.wdl-badge{font-size:10px;font-weight:700;color:var(--ink);
+  background:var(--ca);padding:2px 8px;border-radius:50px}
+.wear-integrations{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.wear-int{background:var(--ink3);border:1px solid var(--b3);border-radius:10px;
+  padding:8px 14px;display:flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:600;color:var(--t2);transition:all .25s}
+.wear-int:hover{border-color:var(--b2);color:var(--t1)}
+.wear-int-dot{width:6px;height:6px;border-radius:50%;background:var(--ca);flex-shrink:0}
+
+/* ══ MOSAICO DE FOTOS TECH ══════════════════════════ */
+#fotos-tech{background:var(--ink);padding:0}
+.mosaico{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;height:400px}
+.mos-item{overflow:hidden;position:relative}
+.mos-item img{width:100%;height:100%;object-fit:cover;
+  filter:saturate(.65) brightness(.65);transition:all .5s}
+.mos-item:hover img{filter:saturate(1) brightness(.82);transform:scale(1.06)}
+.mos-item-label{position:absolute;inset:0;
+  background:linear-gradient(0deg,rgba(0,0,0,.65) 0%,transparent 50%);
+  opacity:0;transition:opacity .3s;
+  display:flex;align-items:flex-end;padding:14px}
+.mos-item:hover .mos-item-label{opacity:1}
+.mos-item-txt{font-size:12px;font-weight:600;color:rgba(255,255,255,.9)}
+
+/* ══ DATA VISUALIZACIÓN CSS ═════════════════════════ */
+.data-ring-wrap{display:flex;align-items:center;gap:10px;margin-top:20px}
+.data-ring{position:relative;width:56px;height:56px}
+.data-ring svg{transform:rotate(-90deg)}
+.data-ring-num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  font-family:var(--fd);font-size:13px;font-weight:800}
+.data-ring-lbl{font-size:12px;color:var(--t2)}
+
+/* Pulse animation for tech elements */
+@keyframes techPulse{0%,100%{box-shadow:0 0 0 0 rgba(0,196,176,.4)}50%{box-shadow:0 0 0 8px rgba(0,196,176,0)}}
+.pulse{animation:techPulse 2.5s infinite}
+
+/* Scan line effect */
+@keyframes scanLine{0%{top:-10%}100%{top:110%}}
+.scan-wrap{position:relative;overflow:hidden}
+.scan-line{position:absolute;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(0,196,176,.6),transparent);
+  animation:scanLine 3s ease-in-out infinite;pointer-events:none;z-index:5}
+
+@media(max-width:1080px){
+  .tech-hero{grid-template-columns:1fr}
+  .wear-layout{grid-template-columns:1fr}
+  .tech-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:720px){
+  .tech-grid{grid-template-columns:1fr}
+  .mosaico{grid-template-columns:1fr 1fr 1fr;height:auto}
+  .mosaico .mos-item{height:160px}
+}
+@media(max-width:520px){
+  .mosaico{grid-template-columns:1fr 1fr}
+  .wear-devices{grid-template-columns:1fr}
+  .wear-device.featured{grid-column:auto}
+}
+</style>
+</head>
+<body>
+<div id="pb"></div>
+
+<!-- ██ NAV ██ -->
+<nav id="nav">
+  <div class="nw">
+    <a href="#" class="nl-logo">
+      <img src="https://cdn.prod.website-files.com/685e985042d1ef2e99055068/685ea742504c62ee68f9a8a7_Logo-CA_color.png" alt="Care Assistance"/>
+    </a>
+    <ul class="nlinks" id="nl">
+      <li><a href="#beneficios">Beneficios</a></li>
+      <li><a href="#tecnologia">Tecnología</a></li>
+      <li><a href="#pilares">Pilares</a></li>
+      <li><a href="#plataforma">Plataforma</a></li>
+      <li><a href="#metrics">Resultados</a></li>
+      <li><a href="#testi">Clientes</a></li>
+      <li><a href="#pricing">Precios</a></li>
+    </ul>
+    <div class="n-right">
+      <a href="#" class="btn-login">Iniciar sesión</a>
+      <a href="#ctaf" class="btn-cta-nav">Solicitar Demo</a>
+    </div>
+    <button class="nhb" id="hbtn"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- ██ HERO ██ -->
+<section id="hero">
+  <div class="h-bg">
+  <!-- Partículas tech -->
+  <div class="particles" id="particles"></div>
+    <div class="h-mesh"></div>
+    <div class="h-grid"></div>
+    <div class="h-orb"></div>
+  </div>
+  <div class="h-inner">
+    <div>
+      <div class="h-pill">
+        <div class="h-pill-dot"><span></span></div>
+        <span class="h-pill-txt">#1 Bienestar Corporativo LATAM</span>
+      </div>
+      <h1 class="h1">
+        Haz que cuente<br/>
+        <span class="g">tu equipo</span>
+      </h1>
+      <p class="h-sub">Tu aliado estratégico en salud y bienestar corporativo impulsado por IA. Programas personalizados que motivan, cuidan y transforman equipos de alto rendimiento en LATAM.</p>
+      <div class="h-btns">
+        <a href="#ctaf" class="btn-main">
+          Solicitar demo gratuita
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </a>
+        <a href="#plataforma" class="btn-sec">
+          <svg width="17" height="17" viewBox="0 0 18 18" fill="none"><circle cx="9" cy="9" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M7 6L12 9L7 12V6Z" fill="currentColor"/></svg>
+          Ver la plataforma
+        </a>
+      </div>
+      <div class="h-trust">
+        <div class="htrust-item"><div class="htrust-dot"></div>+100 empresas en LATAM</div>
+        <div class="htrust-item"><div class="htrust-dot"></div>ISO 27001 & 9001 Certificados</div>
+        <div class="htrust-item"><div class="htrust-dot"></div>Chile · México · Argentina · Uruguay</div>
+      </div>
+    </div>
+    <div class="h-visual">
+      <div class="p-glow"></div>
+      <div class="phone">
+        <div class="p-notch"></div>
+        <div class="p-screen">
+          <div class="p-head">
+            <div><div class="p-gr">Buenos días,</div><div class="p-nm">Ana García ✨</div></div>
+            <div class="p-av"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&q=80&auto=format&fit=crop&crop=face" alt=""/></div>
+          </div>
+          <div class="p-score">
+            <div class="p-score-ring">
+              <svg viewBox="0 0 56 56" width="56" height="56" style="transform:rotate(-90deg)">
+                <circle cx="28" cy="28" r="22" stroke="rgba(0,196,176,.14)" stroke-width="5" fill="none"/>
+                <circle cx="28" cy="28" r="22" stroke="#00C4B0" stroke-width="5" fill="none" stroke-dasharray="138" stroke-dashoffset="28" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="p-snum">87</div>
+            <div class="p-slbl">Bienestar Score</div>
+          </div>
+          <div class="p-stats">
+            <div class="p-stat"><div class="p-sv" style="color:#00C4B0">🔥 14</div><div class="p-sl">Días racha</div></div>
+            <div class="p-stat"><div class="p-sv" style="color:#FF6B35">💎 840</div><div class="p-sl">CareCoins</div></div>
+          </div>
+          <div class="p-reto">
+            <div class="p-ri">🏆</div>
+            <div><div class="p-rt1">Reto semanal activo</div><div class="p-rt2">Meditación 5 días · 3/5</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="fcard fc1">
+        <div class="fc-ico" style="background:rgba(0,196,176,.12);color:#00C4B0">📈</div>
+        <div><div class="fc-main">+25% productividad</div><div class="fc-sub">Empresa Retail · Chile</div></div>
+      </div>
+      <div class="fcard fc2">
+        <div class="fc-ico" style="background:rgba(255,107,53,.12);color:#FF6B35">🤝</div>
+        <div><div class="fc-main">78% participación</div><div class="fc-sub">Promedio activos</div></div>
+      </div>
+      <div class="fcard fc3">
+        <div class="fc-ico" style="background:rgba(74,222,128,.12);color:#4ADE80">🧠</div>
+        <div><div class="fc-main">Sesión con psicólogo</div><div class="fc-sub">Hoy 15:00 · Online</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ██ TICKER ██ -->
+<div class="ticker">
+  <p class="ticker-lbl">Empresas que confían en Care Assistance</p>
+  <div class="ticker-wrap">
+    <div class="ticker-row">
+      <span class="t-logo">MetLife</span><span class="t-logo">EuroAmérica</span><span class="t-logo">Zurich</span><span class="t-logo">BCI Seguros</span><span class="t-logo">WTW</span><span class="t-logo">Lockton</span><span class="t-logo">EY</span><span class="t-logo">Southbridge</span><span class="t-logo">Minrel</span><span class="t-logo">ProChile</span>
+    </div>
+    <div class="ticker-row" aria-hidden="true">
+      <span class="t-logo">MetLife</span><span class="t-logo">EuroAmérica</span><span class="t-logo">Zurich</span><span class="t-logo">BCI Seguros</span><span class="t-logo">WTW</span><span class="t-logo">Lockton</span><span class="t-logo">EY</span><span class="t-logo">Southbridge</span><span class="t-logo">Minrel</span><span class="t-logo">ProChile</span>
+    </div>
+  </div>
+</div>
+
+<!-- ██ BENEFICIOS ██ -->
+<section id="beneficios">
+  <div class="w">
+    <div class="bens">
+      <div class="bens-img rv">
+        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&q=80&auto=format&fit=crop" alt="Equipo feliz trabajando"/>
+        <div class="bens-img-overlay"></div>
+        <div class="bens-badge">
+          <div class="bbadge">
+            <div class="bbadge-ico">🌟</div>
+            <div><div class="bbadge-num">+100</div><div class="bbadge-lbl">empresas en LATAM</div></div>
+          </div>
+          <div class="bbadge">
+            <div class="bbadge-ico">🏆</div>
+            <div><div class="bbadge-num">4.9/5</div><div class="bbadge-lbl">NPS promedio</div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="tag">Soluciones Reales</div>
+        <h2 class="h2">Organizaciones que<br/>buscan marcar<br/><em>la diferencia</em></h2>
+        <p class="sub" style="margin-top:14px">Bienestar al alcance de tu empresa. Programas de alto impacto con seguimiento permanente para equipos más motivados, más sanos y más felices.</p>
+        <div class="bens-list">
+          <div class="ben-item rv d1">
+            <div class="ben-ico" style="background:rgba(0,196,176,.1)">📈</div>
+            <div><div class="ben-h">Aumenta la productividad</div><div class="ben-p">Equipos saludables rinden hasta un 25% más. Menos ausentismo, más enfoque y mejor clima laboral.</div></div>
+          </div>
+          <div class="ben-item rv d2">
+            <div class="ben-ico" style="background:rgba(255,107,53,.1)">🌟</div>
+            <div><div class="ben-h">Fideliza el talento</div><div class="ben-p">Reduce la rotación no deseada con programas que hacen que tu gente quiera quedarse y dar lo mejor.</div></div>
+          </div>
+          <div class="ben-item rv d3">
+            <div class="ben-ico" style="background:rgba(96,165,250,.1)">💻</div>
+            <div><div class="ben-h">Tecnología de vanguardia</div><div class="ben-p">Plataforma digital con IA, wearables y Salesforce Health Cloud para decisiones basadas en datos reales.</div></div>
+          </div>
+          <div class="ben-item rv d4">
+            <div class="ben-ico" style="background:rgba(74,222,128,.1)">🎯</div>
+            <div><div class="ben-h">Full customizable</div><div class="ben-p">Adaptable a tu industria, cultura y generaciones. Desde 50 hasta 10.000 colaboradores en varios países.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ██ PROBLEMA ██ -->
+<section id="problema">
+  <div class="w">
+    <div class="prob-layout">
+      <div>
+        <div class="tag">El Desafío</div>
+        <h2 class="h2">El bienestar ignorado<br/>le cuesta <em>caro</em><br/>a tu empresa</h2>
+        <p class="sub" style="margin-top:14px">El 70% de los CEOs en LATAM dice que el bienestar es prioridad. Menos del 20% lo mide. La brecha entre intención y acción cuesta millones en rotación y productividad perdida.</p>
+        <div class="quote-block">
+          <p class="quote-text">"Un colaborador que no está bien cuesta en promedio 3× su salario en pérdida de productividad, reclutamiento y capacitación de su reemplazo."</p>
+          <p class="quote-src">— Gallup Global Wellbeing Report 2025</p>
+        </div>
+        <a href="#ctaf" class="btn-main" style="margin-top:28px;display:inline-flex">Conocer la solución →</a>
+      </div>
+      <div class="pstats rv">
+        <div class="pst"><span class="pst-n" style="color:var(--warm)">68%</span><div class="pst-d">de colaboradores en LATAM reportan síntomas de burnout moderado o severo</div><div class="pst-s">Fuente: Gallup 2025</div></div>
+        <div class="pst"><span class="pst-n" style="color:#FFB800">3×</span><div class="pst-d">el costo de reemplazar un colaborador vs. invertir en su bienestar desde el inicio</div><div class="pst-s">Fuente: McKinsey Health Institute</div></div>
+        <div class="pst"><span class="pst-n" style="color:#60A5FA">41%</span><div class="pst-d">de la rotación no deseada tiene causa directa en el bienestar emocional deficiente</div><div class="pst-s">Fuente: LinkedIn Talent Trends 2025</div></div>
+        <div class="pst"><span class="pst-n" style="color:var(--ca)">$0</span><div class="pst-d">es lo que el 60% de las empresas destina a medir el ROI de sus programas de bienestar</div><div class="pst-s">Fuente: Mercer LATAM Survey</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ██ TECNOLOGÍA IA ██ -->
+<section id="tecnologia">
+  <div class="w">
+    <div class="tech-hero">
+      <div>
+        <div class="tag">Tecnología de Vanguardia</div>
+        <h2 class="h2">IA que cuida,<br/>datos que<br/><em>transforman</em></h2>
+        <p class="sub" style="margin-top:14px">Combinamos inteligencia artificial, machine learning e integración con wearables para crear la experiencia de bienestar más personalizada de LATAM.</p>
+        <!-- Data rings inline -->
+        <div class="data-ring-wrap" style="margin-top:28px;flex-wrap:wrap;gap:24px">
+          <div style="display:flex;align-items:center;gap:12px">
+            <div class="data-ring">
+              <svg viewBox="0 0 56 56" width="56" height="56">
+                <circle cx="28" cy="28" r="22" stroke="rgba(0,196,176,.14)" stroke-width="5" fill="none"/>
+                <circle cx="28" cy="28" r="22" stroke="#00C4B0" stroke-width="5" fill="none" stroke-dasharray="138" stroke-dashoffset="28" stroke-linecap="round"/>
+              </svg>
+              <div class="data-ring-num" style="color:#00C4B0">80%</div>
+            </div>
+            <div><div style="font-size:13px;font-weight:600;color:var(--t1)">Participación</div><div class="data-ring-lbl">promedio activa</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <div class="data-ring">
+              <svg viewBox="0 0 56 56" width="56" height="56">
+                <circle cx="28" cy="28" r="22" stroke="rgba(255,107,53,.14)" stroke-width="5" fill="none"/>
+                <circle cx="28" cy="28" r="22" stroke="#FF6B35" stroke-width="5" fill="none" stroke-dasharray="138" stroke-dashoffset="10" stroke-linecap="round"/>
+              </svg>
+              <div class="data-ring-num" style="color:#FF6B35">93%</div>
+            </div>
+            <div><div style="font-size:13px;font-weight:600;color:var(--t1)">Satisfacción</div><div class="data-ring-lbl">de usuarios</div></div>
+          </div>
+          <div style="display:flex;align-items:center;gap:12px">
+            <div class="data-ring">
+              <svg viewBox="0 0 56 56" width="56" height="56">
+                <circle cx="28" cy="28" r="22" stroke="rgba(167,139,250,.14)" stroke-width="5" fill="none"/>
+                <circle cx="28" cy="28" r="22" stroke="#A78BFA" stroke-width="5" fill="none" stroke-dasharray="138" stroke-dashoffset="14" stroke-linecap="round"/>
+              </svg>
+              <div class="data-ring-num" style="color:#A78BFA">90%</div>
+            </div>
+            <div><div style="font-size:13px;font-weight:600;color:var(--t1)">Adherencia</div><div class="data-ring-lbl">al programa</div></div>
+          </div>
+        </div>
+        <a href="#ctaf" class="btn-main" style="margin-top:32px;display:inline-flex">Conocer la tecnología →</a>
+      </div>
+      <div class="tech-visual scan-wrap">
+        <div class="scan-line"></div>
+        <img class="tech-img-main" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80&auto=format&fit=crop" alt="Dashboard analítica salud"/>
+        <div class="tech-img-overlay"></div>
+        <!-- Badges sobre la imagen -->
+        <div class="t-badge tb1">
+          <div class="tb-ico">🤖</div>
+          <div class="tb-val">IA</div>
+          <div class="tb-lbl">Personalización</div>
+        </div>
+        <div class="t-badge tb2">
+          <div class="tb-ico">⚡</div>
+          <div class="tb-val">99.9%</div>
+          <div class="tb-lbl">Uptime SLA</div>
+        </div>
+        <div class="t-badge tb3">
+          <div class="tb-ico">🔒</div>
+          <div class="tb-val">AWS</div>
+          <div class="tb-lbl">Encrypted</div>
+        </div>
+        <div class="t-badge tb4">
+          <div class="tb-ico">📊</div>
+          <div class="tb-val">Real-time</div>
+          <div class="tb-lbl">Analytics</div>
+        </div>
+      </div>
+    </div>
+    <!-- Grid 4 pilares tech -->
+    <div class="tech-grid rv">
+      <div class="tech-card" style="--tc:var(--ca)">
+        <div class="tc-ico" style="background:rgba(0,196,176,.1)">🤖</div>
+        <div class="tc-title">Inteligencia Artificial</div>
+        <div class="tc-desc">Algoritmos de ML que aprenden de cada colaborador y ajustan programas en tiempo real para maximizar el impacto individual.</div>
+        <div class="tc-stat"><div class="tc-stat-num">98%</div><div class="tc-stat-lbl">precisión en recomendaciones</div></div>
+      </div>
+      <div class="tech-card" style="--tc:#A78BFA">
+        <div class="tc-ico" style="background:rgba(167,139,250,.1)">🧬</div>
+        <div class="tc-title">Biometría Avanzada</div>
+        <div class="tc-desc">Procesamiento de datos biométricos de wearables para detectar patrones de estrés, fatiga y riesgo de burnout antes de que escalen.</div>
+        <div class="tc-stat"><div class="tc-stat-num" style="color:#A78BFA">15+</div><div class="tc-stat-lbl">métricas biométricas monitoreadas</div></div>
+      </div>
+      <div class="tech-card" style="--tc:var(--warm)">
+        <div class="tc-ico" style="background:rgba(255,107,53,.1)">☁️</div>
+        <div class="tc-title">Salesforce Health Cloud</div>
+        <div class="tc-desc">Infraestructura enterprise con Health Cloud para gestión de datos clínicos, seguimiento longitudinal y reportes de ROI automáticos.</div>
+        <div class="tc-stat"><div class="tc-stat-num" style="color:var(--warm)">-73%</div><div class="tc-stat-lbl">tiempo de respuesta</div></div>
+      </div>
+      <div class="tech-card" style="--tc:#60A5FA">
+        <div class="tc-ico" style="background:rgba(96,165,250,.1)">🔐</div>
+        <div class="tc-title">Seguridad & Privacidad</div>
+        <div class="tc-desc">ISO 27001 certificados. Encriptación end-to-end en AWS. Cumplimiento con leyes de privacidad de cada país de LATAM.</div>
+        <div class="tc-stat"><div class="tc-stat-num" style="color:#60A5FA">ISO</div><div class="tc-stat-lbl">27001 & 9001 certificados</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ██ MOSAICO TECH ██ -->
+<div id="fotos-tech">
+  <div class="mosaico">
+    <div class="mos-item"><img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&q=75&auto=format&fit=crop" alt="Tecnología salud"/><div class="mos-item-label"><span class="mos-item-txt">Clínica Virtual</span></div></div>
+    <div class="mos-item"><img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=500&q=75&auto=format&fit=crop" alt="Doctor digital"/><div class="mos-item-label"><span class="mos-item-txt">Telemedicina</span></div></div>
+    <div class="mos-item"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&q=75&auto=format&fit=crop" alt="Analytics"/><div class="mos-item-label"><span class="mos-item-txt">Analytics ROI</span></div></div>
+    <div class="mos-item"><img src="https://images.unsplash.com/photo-1576671081837-49000212a370?w=500&q=75&auto=format&fit=crop" alt="Wearable tech"/><div class="mos-item-label"><span class="mos-item-txt">Wearables</span></div></div>
+    <div class="mos-item"><img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&q=75&auto=format&fit=crop" alt="App móvil"/><div class="mos-item-label"><span class="mos-item-txt">App Móvil</span></div></div>
+  </div>
+</div>
+
+<!-- ██ WEARABLES ██ -->
+<section id="wearables">
+  <div class="w">
+    <div class="wear-layout">
+      <div>
+        <div class="tag">Integración Wearables</div>
+        <h2 class="h2">Tu salud en tiempo<br/>real. Datos que<br/><em>cambian hábitos</em></h2>
+        <p class="sub" style="margin-top:14px">Conectamos los dispositivos que tus colaboradores ya usan. Los datos no son solo estadísticas — se convierten en recomendaciones accionables que generan cambio real.</p>
+        <div class="wear-integrations">
+          <div class="wear-int"><div class="wear-int-dot"></div>Apple Watch</div>
+          <div class="wear-int"><div class="wear-int-dot"></div>Fitbit</div>
+          <div class="wear-int"><div class="wear-int-dot"></div>Garmin</div>
+          <div class="wear-int"><div class="wear-int-dot"></div>Samsung Health</div>
+          <div class="wear-int"><div class="wear-int-dot"></div>Google Fit</div>
+          <div class="wear-int"><div class="wear-int-dot"></div>Apple Health</div>
+          <div class="wear-int"><div class="wear-int-dot"></div>Whoop</div>
+          <div class="wear-int"><div class="wear-int-dot"></div>Oura Ring</div>
+        </div>
+        <!-- Mini métricas wearable -->
+        <div style="margin-top:28px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+          <div style="background:var(--ink3);border:1px solid var(--b3);border-radius:var(--r);padding:18px">
+            <div style="font-size:10px;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Frec. cardíaca promedio</div>
+            <div style="font-family:var(--fd);font-size:28px;font-weight:800;color:var(--ca)">72 bpm</div>
+            <div style="font-size:11px;color:#4ADE80;margin-top:4px">▼ -4 bpm vs. mes anterior</div>
+          </div>
+          <div style="background:var(--ink3);border:1px solid var(--b3);border-radius:var(--r);padding:18px">
+            <div style="font-size:10px;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Índice de estrés</div>
+            <div style="font-family:var(--fd);font-size:28px;font-weight:800;color:var(--warm)">38/100</div>
+            <div style="font-size:11px;color:#4ADE80;margin-top:4px">▼ -12 pts mejora sostenida</div>
+          </div>
+          <div style="background:var(--ink3);border:1px solid var(--b3);border-radius:var(--r);padding:18px">
+            <div style="font-size:10px;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Calidad del sueño</div>
+            <div style="font-family:var(--fd);font-size:28px;font-weight:800;color:#A78BFA">7.2 h</div>
+            <div style="font-size:11px;color:#4ADE80;margin-top:4px">▲ +0.8 h en 3 meses</div>
+          </div>
+          <div style="background:var(--ink3);border:1px solid var(--b3);border-radius:var(--r);padding:18px">
+            <div style="font-size:10px;color:var(--t3);text-transform:uppercase;letter-spacing:.08em;margin-bottom:6px">Pasos diarios prom.</div>
+            <div style="font-family:var(--fd);font-size:28px;font-weight:800;color:#60A5FA">8.4K</div>
+            <div style="font-size:11px;color:#4ADE80;margin-top:4px">▲ +1.2K vs. inicio</div>
+          </div>
+        </div>
+      </div>
+      <div class="wear-devices rv">
+        <div class="wear-device featured">
+          <img src="https://images.unsplash.com/photo-1510017803434-a899398421b3?w=800&q=80&auto=format&fit=crop" alt="Smartwatch tecnología salud"/>
+          <div class="wear-device-label">
+            <div class="wdl-name">📡 Monitoreo en tiempo real</div>
+            <div class="wdl-badge">Live</div>
+          </div>
+        </div>
+        <div class="wear-device">
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80&auto=format&fit=crop" alt="Doctor tablet digital"/>
+          <div class="wear-device-label">
+            <div class="wdl-name">👨‍⚕️ Clínica Virtual</div>
+            <div class="wdl-badge">24/7</div>
+          </div>
+        </div>
+        <div class="wear-device">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80&auto=format&fit=crop" alt="Analytics dashboard"/>
+          <div class="wear-device-label">
+            <div class="wdl-name">📊 ROI Dashboard</div>
+            <div class="wdl-badge">AI</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ██ PILARES ██ -->
+<section id="pilares">
+  <div class="w">
+    <div class="pil-head">
+      <div>
+        <div class="tag">Nuestro Ecosistema</div>
+        <h2 class="h2">3 pilares.<br/>Un bienestar<br/><em>integral</em></h2>
+      </div>
+      <div>
+        <p class="sub">Diseñados para el contexto cultural de LATAM. Cada pilar tiene contenidos, métricas y reportes propios — integrados en una sola plataforma de alta usabilidad.</p>
+        <a href="#ctaf" class="btn-main" style="margin-top:28px;display:inline-flex">Ver demo completa →</a>
+      </div>
+    </div>
+
+    <!-- NUEVA GRID 3 PILARES - diseño premium -->
+    <div class="pil3-grid rv">
+
+      <!-- PILAR 1: Físico-Emocional -->
+      <div class="pil3-card">
+        <div class="pil3-img-wrap">
+          <img src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=900&q=80&auto=format&fit=crop" alt="Pilar Físico-Emocional"/>
+          <div class="pil3-overlay" style="--gc1:rgba(0,196,176,.55);--gc2:rgba(0,168,152,.88)"></div>
+          <div class="pil3-number">01</div>
+          <div class="pil3-badge" style="border-color:rgba(0,196,176,.5);color:#00C4B0">💚 Físico · Emocional</div>
+        </div>
+        <div class="pil3-body">
+          <div class="pil3-icon-wrap" style="background:linear-gradient(135deg,rgba(0,196,176,.18),rgba(0,196,176,.06));border-color:rgba(0,196,176,.3)">
+            <span style="font-size:28px">🫀</span>
+          </div>
+          <h3 class="pil3-title">Pilar<br/><span style="color:#00C4B0">Físico-Emocional</span></h3>
+          <p class="pil3-desc">Programa integral que une salud física y bienestar mental en una sola experiencia. Wearables, psicólogos certificados, nutricionistas y coaches que trabajan juntos por tu equipo.</p>
+          <div class="pil3-chips">
+            <span class="pil3-chip" style="--cc:rgba(0,196,176,.2);--ct:#00C4B0">💪 Actividad Física</span>
+            <span class="pil3-chip" style="--cc:rgba(0,196,176,.2);--ct:#00C4B0">🧠 Salud Mental</span>
+            <span class="pil3-chip" style="--cc:rgba(0,196,176,.2);--ct:#00C4B0">🥗 Nutrición</span>
+            <span class="pil3-chip" style="--cc:rgba(0,196,176,.2);--ct:#00C4B0">😴 Sueño</span>
+          </div>
+          <div class="pil3-stat">
+            <div class="pil3-stat-num" style="color:#00C4B0">-45%</div>
+            <div class="pil3-stat-lbl">reducción en ausentismo por estrés</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PILAR 2: Financiero -->
+      <div class="pil3-card pil3-featured">
+        <div class="pil3-img-wrap">
+          <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=900&q=80&auto=format&fit=crop" alt="Pilar Financiero"/>
+          <div class="pil3-overlay" style="--gc1:rgba(255,107,53,.55);--gc2:rgba(232,90,38,.88)"></div>
+          <div class="pil3-number">02</div>
+          <div class="pil3-badge" style="border-color:rgba(255,107,53,.5);color:#FF6B35">🔥 Pilar Destacado</div>
+        </div>
+        <div class="pil3-body">
+          <div class="pil3-icon-wrap" style="background:linear-gradient(135deg,rgba(255,107,53,.18),rgba(255,107,53,.06));border-color:rgba(255,107,53,.3)">
+            <span style="font-size:28px">💰</span>
+          </div>
+          <h3 class="pil3-title">Pilar<br/><span style="color:#FF6B35">Financiero</span></h3>
+          <p class="pil3-desc">Educación financiera, asesorías personalizadas y herramientas de planificación que reducen el estrés económico — uno de los principales factores de bajo rendimiento y rotación en LATAM.</p>
+          <div class="pil3-chips">
+            <span class="pil3-chip" style="--cc:rgba(255,107,53,.2);--ct:#FF6B35">📊 Educación Financiera</span>
+            <span class="pil3-chip" style="--cc:rgba(255,107,53,.2);--ct:#FF6B35">🏦 Asesoría Personal</span>
+            <span class="pil3-chip" style="--cc:rgba(255,107,53,.2);--ct:#FF6B35">📈 Planificación</span>
+            <span class="pil3-chip" style="--cc:rgba(255,107,53,.2);--ct:#FF6B35">🎯 Metas</span>
+          </div>
+          <div class="pil3-stat">
+            <div class="pil3-stat-num" style="color:#FF6B35">3×</div>
+            <div class="pil3-stat-lbl">menor rotación en colaboradores con bienestar financiero</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PILAR 3: Social -->
+      <div class="pil3-card">
+        <div class="pil3-img-wrap">
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900&q=80&auto=format&fit=crop" alt="Pilar Social"/>
+          <div class="pil3-overlay" style="--gc1:rgba(251,191,36,.5);--gc2:rgba(217,161,10,.85)"></div>
+          <div class="pil3-number">03</div>
+          <div class="pil3-badge" style="border-color:rgba(251,191,36,.5);color:#FBBF24">🌟 Social</div>
+        </div>
+        <div class="pil3-body">
+          <div class="pil3-icon-wrap" style="background:linear-gradient(135deg,rgba(251,191,36,.18),rgba(251,191,36,.06));border-color:rgba(251,191,36,.3)">
+            <span style="font-size:28px">🤝</span>
+          </div>
+          <h3 class="pil3-title">Pilar<br/><span style="color:#FBBF24">Social</span></h3>
+          <p class="pil3-desc">Retos en equipo, comunidad interna y experiencias compartidas que construyen cultura real, sentido de pertenencia y conexiones genuinas dentro y fuera del trabajo.</p>
+          <div class="pil3-chips">
+            <span class="pil3-chip" style="--cc:rgba(251,191,36,.2);--ct:#FBBF24">👥 Team Building</span>
+            <span class="pil3-chip" style="--cc:rgba(251,191,36,.2);--ct:#FBBF24">🎮 Gamificación</span>
+            <span class="pil3-chip" style="--cc:rgba(251,191,36,.2);--ct:#FBBF24">🏆 Retos Grupales</span>
+            <span class="pil3-chip" style="--cc:rgba(251,191,36,.2);--ct:#FBBF24">🎉 Comunidad</span>
+          </div>
+          <div class="pil3-stat">
+            <div class="pil3-stat-num" style="color:#FBBF24">+78%</div>
+            <div class="pil3-stat-lbl">participación activa sostenida en programas sociales</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ██ PLATAFORMA ██ -->
+<section id="plataforma">
+  <div class="w">
+    <div class="plat-grid">
+      <div>
+        <div class="tag">La Plataforma</div>
+        <h2 class="h2">Todo el bienestar<br/>desde tu <em>App</em></h2>
+        <p class="sub" style="margin-top:14px">Una solución integral que combina tecnología de vanguardia con acompañamiento humano. Alta usabilidad y adopción promedio del 55% en el primer mes.</p>
+        <div class="ptabs">
+          <div class="ptab act" onclick="sTab(this)">
+            <div class="ptab-n">01</div>
+            <div><div class="ptab-t">Diagnóstico y ruta personalizada</div><div class="ptab-d">IA que evalúa salud física, mental y hábitos. Asigna una ruta única y la ajusta en tiempo real.</div></div>
+          </div>
+          <div class="ptab" onclick="sTab(this)">
+            <div class="ptab-n">02</div>
+            <div><div class="ptab-t">Dashboard RRHH con ROI en tiempo real</div><div class="ptab-d">Panel con participación, alertas tempranas y métricas de impacto. Reportes con un click.</div></div>
+          </div>
+          <div class="ptab" onclick="sTab(this)">
+            <div class="ptab-n">03</div>
+            <div><div class="ptab-t">Wearables + Insights accionables</div><div class="ptab-d">Apple Watch, Fitbit, Garmin. Datos convertidos en recomendaciones concretas, no solo estadísticas.</div></div>
+          </div>
+          <div class="ptab" onclick="sTab(this)">
+            <div class="ptab-n">04</div>
+            <div><div class="ptab-t">Gamificación con CareCoins</div><div class="ptab-d">Puntos, retos colectivos y recompensas reales que generan +80% de participación sostenida.</div></div>
+          </div>
+          <div class="ptab" onclick="sTab(this)">
+            <div class="ptab-n">05</div>
+            <div><div class="ptab-t">IA + coaching humano real</div><div class="ptab-d">La IA personaliza, los coaches transforman. Psicólogos y coaches certificados on-demand.</div></div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="dash">
+          <div class="dash-bar">
+            <div class="dash-dots">
+              <div class="dd" style="background:#FF5F57"></div>
+              <div class="dd" style="background:#FEBC2E"></div>
+              <div class="dd" style="background:#28C840"></div>
+            </div>
+            <div class="dash-ttl">Panel RRHH · Care Assistance · 2026</div>
+            <div></div>
+          </div>
+          <div class="dash-body">
+            <div class="dk"><div class="dkv">78%</div><div class="dkl">Participación activa</div><div class="dkc up">↑ +12% vs. mes anterior</div></div>
+            <div class="dk"><div class="dkv">4.8</div><div class="dkl">NPS empleados</div><div class="dkc up">↑ +0.6 este trimestre</div></div>
+            <div class="dk"><div class="dkv">−31%</div><div class="dkl">Ausentismo</div><div class="dkc up">↓ Mejora sostenida</div></div>
+            <div class="dash-chart">
+              <div class="dc-lbl">Participación mensual · últimos 7 meses</div>
+              <div class="dc-bars">
+                <div class="dc-bar" style="height:40%" data-l="Nov"></div>
+                <div class="dc-bar" style="height:55%" data-l="Dic"></div>
+                <div class="dc-bar" style="height:50%" data-l="Ene"></div>
+                <div class="dc-bar" style="height:63%" data-l="Feb"></div>
+                <div class="dc-bar" style="height:70%" data-l="Mar"></div>
+                <div class="dc-bar" style="height:74%" data-l="Abr"></div>
+                <div class="dc-bar act" style="height:78%" data-l="May"></div>
+              </div>
+            </div>
+            <div class="dash-row2">
+              <div class="da">
+                <div class="da-t">Actividad reciente</div>
+                <div class="da-i"><div class="da-dot" style="background:var(--ca)"></div><div class="da-txt">Ana completó reto semanal</div><div class="da-tm">5m</div></div>
+                <div class="da-i"><div class="da-dot" style="background:#A78BFA"></div><div class="da-txt">12 nuevas sesiones coaching</div><div class="da-tm">1h</div></div>
+                <div class="da-i"><div class="da-dot" style="background:#FBBF24"></div><div class="da-txt">Reto de equipo alcanzó 75%</div><div class="da-tm">3h</div></div>
+              </div>
+              <div class="da">
+                <div class="da-t">Alertas del sistema</div>
+                <div class="da-i"><div class="da-dot" style="background:var(--warm)"></div><div class="da-txt" style="font-size:11.5px">Finanzas: participación baja</div><div class="da-tm">!</div></div>
+                <div class="da-i"><div class="da-dot" style="background:var(--ca)"></div><div class="da-txt" style="font-size:11.5px">Reporte mensual listo</div><div class="da-tm">✓</div></div>
+                <div class="da-i"><div class="da-dot" style="background:#60A5FA"></div><div class="da-txt" style="font-size:11.5px">ROI del mes: 3.2× inversión</div><div class="da-tm">📊</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ██ GALERÍA ██ -->
+<div id="galeria">
+  <div class="gal-grid">
+    <div class="gal-item"><img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=75&auto=format&fit=crop" alt="Bienestar Mental"/><div class="gal-overlay"></div><div class="gal-label">Salud Mental</div></div>
+    <div class="gal-item"><img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?w=600&q=75&auto=format&fit=crop" alt="Actividad Física"/><div class="gal-overlay"></div><div class="gal-label">Salud Física</div></div>
+    <div class="gal-item"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=600&q=75&auto=format&fit=crop" alt="Trabajo en equipo"/><div class="gal-overlay"></div><div class="gal-label">Bienestar Social</div></div>
+    <div class="gal-item"><img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=75&auto=format&fit=crop" alt="Desarrollo"/><div class="gal-overlay"></div><div class="gal-label">Desarrollo</div></div>
+    <div class="gal-item"><img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=75&auto=format&fit=crop" alt="Nutrición"/><div class="gal-overlay"></div><div class="gal-label">Nutrición</div></div>
+  </div>
+</div>
+
+<!-- ██ MÉTRICAS ██ -->
+<section id="metrics">
+  <div class="w metrics-inner">
+    <div class="m-top">
+      <div>
+        <div class="tag">Resultados</div>
+        <h2 class="h2">Números que el CFO<br/><em>entiende</em></h2>
+        <p class="sub" style="margin-top:14px">Métricas reales de clientes activos en LATAM. No proyecciones — resultados de empresas con equipos como el tuyo.</p>
+        <div style="margin-top:36px">
+          <p style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--t3);margin-bottom:16px">Presentes en</p>
+          <div class="m-countries">
+            <div class="m-country"><span>🇨🇱</span>Chile</div>
+            <div class="m-country"><span>🇲🇽</span>México</div>
+            <div class="m-country"><span>🇦🇷</span>Argentina</div>
+            <div class="m-country"><span>🇺🇾</span>Uruguay</div>
+          </div>
+        </div>
+        <!-- Certs reales -->
+        <div style="display:flex;gap:10px;margin-top:28px">
+          <div style="background:var(--ca-soft);border:1px solid var(--b1);border-radius:10px;padding:10px 14px">
+            <img src="https://cdn.prod.website-files.com/685e985042d1ef2e99055068/6866fcadefea9b9ab10544b1_ISO-27001.png" alt="ISO 27001" style="height:26px;width:auto;filter:brightness(1.8) saturate(0)"/>
+          </div>
+          <div style="background:var(--ca-soft);border:1px solid var(--b1);border-radius:10px;padding:10px 14px">
+            <img src="https://cdn.prod.website-files.com/685e985042d1ef2e99055068/6866fc998376ffb659947dd2_ISO-9001.png" alt="ISO 9001" style="height:26px;width:auto;filter:brightness(1.8) saturate(0)"/>
+          </div>
+        </div>
+      </div>
+      <div class="m-grid rv">
+        <div class="m-box" style="--mc:var(--ca)"><span class="m-num mc" data-count="73">0</span><div class="m-lbl">% reducción en tiempo de respuesta al colaborador</div><div class="m-src">Salesforce Health Cloud · Care Assistance</div></div>
+        <div class="m-box" style="--mc:var(--warm)"><span class="m-num mo" data-count="25">0</span><div class="m-lbl">% aumento en capacidad productiva de equipos</div><div class="m-src">Medido en clientes activos +12 meses</div></div>
+        <div class="m-box" style="--mc:#4ADE80"><span class="m-num mg" data-count="100">0</span><div class="m-lbl">+ empresas en LATAM usan Care Assistance hoy</div><div class="m-src">Chile · México · Argentina · Uruguay</div></div>
+        <div class="m-box" style="--mc:#60A5FA"><span class="m-num mb" data-count="96">0</span><div class="m-lbl">% de líderes reportan equipos más motivados</div><div class="m-src">Encuesta NPS anual · 2025</div></div>
+      </div>
+    </div>
+    <!-- Pasos -->
+    <div>
+      <div style="text-align:center;margin-bottom:56px">
+        <div class="tag" style="justify-content:center">Proceso</div>
+        <h2 class="h2">De cero a impacto en <em>4 semanas</em></h2>
+        <p class="sub" style="margin:0 auto;max-width:480px">Tu equipo de RRHH no carga con el trabajo operativo — nosotros lo hacemos por ustedes.</p>
+      </div>
+      <div class="steps rv">
+        <div class="step"><div class="step-n" style="background:rgba(0,196,176,.1);color:var(--ca)">01</div><h4>Diagnóstico</h4><p>Evaluamos salud y cultura. Identificamos riesgos por departamento con benchmarking.</p><ul><li>Encuesta de bienestar</li><li>Análisis de riesgos</li><li>Benchmarking</li></ul></div>
+        <div class="step"><div class="step-n" style="background:rgba(251,191,36,.1);color:#FBBF24">02</div><h4>Configuración</h4><p>Implementamos la plataforma con tu marca e integramos tus sistemas HRIS actuales.</p><ul><li>Whitelabeling</li><li>Integraciones HRIS</li><li>Onboarding del equipo</li></ul></div>
+        <div class="step"><div class="step-n" style="background:rgba(255,107,53,.1);color:var(--warm)">03</div><h4>Lanzamiento</h4><p>Campaña de comunicación interna incluida. 55% de participación en la primera semana.</p><ul><li>Campaña interna</li><li>Capacitación RRHH</li><li>Primer reto grupal</li></ul></div>
+        <div class="step"><div class="step-n" style="background:rgba(96,165,250,.1);color:#60A5FA">04</div><h4>Resultados</h4><p>Reportes mensuales de ROI, participación e impacto. Ajuste continuo garantizado.</p><ul><li>Reporte mensual ROI</li><li>Revisión trimestral</li><li>Mejora continua</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ██ TESTIMONIOS ██ -->
+<section id="testi">
+  <div class="w">
+    <div style="text-align:center;margin-bottom:56px">
+      <div class="tag" style="justify-content:center">Testimonios</div>
+      <h2 class="h2">Lo dicen quienes ya lo <em>viven</em></h2>
+      <p class="sub" style="margin:0 auto">Directores de RRHH y líderes que transformaron su cultura en LATAM.</p>
+    </div>
+    <div class="t-grid">
+      <div class="t-card rv" style="--tc:rgba(0,196,176,.5)">
+        <div class="t-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+        <p class="t-q">"Implementamos Care Assistance hace 14 meses y el cambio fue inmediato. El ausentismo bajó un 28% en el primer trimestre y el equipo llegó con más energía a cada reunión."</p>
+        <div class="t-au">
+          <div class="t-av"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=100&q=80&auto=format&fit=crop&crop=face" alt="María José"/></div>
+          <div><div class="t-nm">María José Espinoza</div><div class="t-ro">Gerente de RRHH</div><div class="t-co">Empresa Retail · Chile · 800 colaboradores</div></div>
+        </div>
+      </div>
+      <div class="t-card rv d2" style="--tc:rgba(255,107,53,.5)">
+        <div class="t-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+        <p class="t-q">"Cuando presenté el dashboard de ROI al CFO, no tuve que convencer a nadie. 3.2× el retorno en 6 meses. Renovamos contrato por 3 años sin dudarlo."</p>
+        <div class="t-au">
+          <div class="t-av"><img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&q=80&auto=format&fit=crop&crop=face" alt="Ricardo"/></div>
+          <div><div class="t-nm">Ricardo Montoya</div><div class="t-ro">VP de Personas</div><div class="t-co">Fintech · México · 1.200 colaboradores</div></div>
+        </div>
+      </div>
+      <div class="t-card rv d4" style="--tc:rgba(96,165,250,.5)">
+        <div class="t-stars"><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div></div>
+        <p class="t-q">"1.800 colaboradores en 3 países con culturas muy distintas. Care Assistance fue el único proveedor que pudo adaptarse a cada contexto. Soporte excepcional, responden en horas."</p>
+        <div class="t-au">
+          <div class="t-av"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&q=80&auto=format&fit=crop&crop=face" alt="Carolina"/></div>
+          <div><div class="t-nm">Carolina Ríos</div><div class="t-ro">Chief People Officer</div><div class="t-co">Logística · Argentina · 1.800 colaboradores</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ██ PRICING ██ -->
+<section id="pricing">
+  <div class="w">
+    <div style="text-align:center">
+      <div class="tag" style="justify-content:center">Precios</div>
+      <h2 class="h2">Inversión clara.<br/>ROI <em>medible</em>.</h2>
+      <p class="sub" style="margin:0 auto">Sin sorpresas. Sin letras chicas. Implementación, soporte y campaña de lanzamiento incluidos.</p>
+    </div>
+    <div class="p-grid rv">
+      <div class="pc">
+        <div class="pnm">Starter</div>
+        <div class="pds">Para empresas de 50 a 200 colaboradores que quieren comenzar con los pilares esenciales.</div>
+        <a href="#ctaf" class="pcta gh">Solicitar cotización →</a>
+        <ul class="pfl">
+          <li class="pfi"><div class="pfch"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="#00C4B0" stroke-width="1.5" stroke-linecap="round"/></svg></div>3 pilares de bienestar</li>
+          <li class="pfi"><div class="pfch"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="#00C4B0" stroke-width="1.5" stroke-linecap="round"/></svg></div>App móvil iOS + Android</li>
+          <li class="pfi"><div class="pfch"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="#00C4B0" stroke-width="1.5" stroke-linecap="round"/></svg></div>Dashboard RRHH básico</li>
+          <li class="pfi"><div class="pfch"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="#00C4B0" stroke-width="1.5" stroke-linecap="round"/></svg></div>Retos y gamificación</li>
+          <li class="pfi"><div class="pfch"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="#00C4B0" stroke-width="1.5" stroke-linecap="round"/></svg></div>Soporte vía email</li>
+        </ul>
+      </div>
+      <div class="pc ft">
+        <div class="pbdg">⚡ Más popular</div>
+        <div class="pnm">Growth</div>
+        <div class="pds">Para empresas de 200 a 1.000 colaboradores que quieren el ecosistema completo y resultados medibles.</div>
+        <a href="#ctaf" class="pcta g">Solicitar cotización →</a>
+        <ul class="pfl">
+          <li class="pfi"><div class="pfch"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="#00C4B0" stroke-width="1.5" stroke-linecap="round"/></svg></div><strong style="color:var(--t1)">6 pilares completos</strong></li>
+          <li class="pfi"><div class="pfch"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="#00C4B0" stroke-width="1.5" stroke-linecap="round"/></svg></div>IA + coaching humano real</li>
+          <li class="pfi"><div class="pfch"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="#00C4B0" stroke-width="1.5" stroke-linecap="round"/></svg></div>Dashboard ROI en tiempo real</li>
+          <li class="pfi"><div class="pfch"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="#00C4B0" stroke-width="1.5" stroke-linecap="round"/></svg></div>Integración wearables</li>
+          <li class="pfi"><div class="pfch"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="#00C4B0" stroke-width="1.5" stroke-linecap="round"/></svg></div>EAP completo (salud, legal, financiero)</li>
+          <li class="pfi"><div class="pfch"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="#00C4B0" stroke-width="1.5" stroke-linecap="round"/></svg></div>Soporte dedicado 24/5</li>
+          <li class="pfi"><div class="pfch"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="#00C4B0" stroke-width="1.5" stroke-linecap="round"/></svg></div>Campaña de lanzamiento incluida</li>
+        </ul>
+      </div>
+      <div class="pc">
+        <div class="pnm">Enterprise</div>
+        <div class="pds">Para empresas +1.000 colaboradores o multinacionales que operan en varios países de LATAM.</div>
+        <a href="#ctaf" class="pcta gh">Hablar con ventas →</a>
+        <ul class="pfl">
+          <li class="pfi"><div class="pfch"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="#00C4B0" stroke-width="1.5" stroke-linecap="round"/></svg></div>Todo lo de Growth</li>
+          <li class="pfi"><div class="pfch"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="#00C4B0" stroke-width="1.5" stroke-linecap="round"/></svg></div>Multi-país y multi-idioma</li>
+          <li class="pfi"><div class="pfch"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="#00C4B0" stroke-width="1.5" stroke-linecap="round"/></svg></div>Whitelabeling completo</li>
+          <li class="pfi"><div class="pfch"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="#00C4B0" stroke-width="1.5" stroke-linecap="round"/></svg></div>Integración SAP / Workday / HRIS</li>
+          <li class="pfi"><div class="pfch"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5L4 7L8 3" stroke="#00C4B0" stroke-width="1.5" stroke-linecap="round"/></svg></div>CSM dedicado + SLA garantizado</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ██ FAQ ██ -->
+<section id="faq">
+  <div class="w">
+    <div class="faq-layout">
+      <div>
+        <div class="tag">FAQ</div>
+        <h2 class="h2">Preguntas<br/>frecuentes</h2>
+        <p class="sub" style="margin-top:14px">¿Tenés dudas? Escribinos a <strong style="color:var(--ca)">contacto@careassistance.com</strong> — respondemos en menos de 2 horas hábiles.</p>
+        <img class="faq-side-img" src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=70&auto=format&fit=crop" alt="Equipo de soporte Care Assistance"/>
+        <div style="margin-top:24px"><a href="#ctaf" class="btn-main" style="display:inline-flex;padding:12px 22px;font-size:14px">Agendar una llamada →</a></div>
+      </div>
+      <div class="faq-list">
+        <div class="fi"><div class="fq" onclick="tF(this)">¿Cuánto tiempo tarda la implementación?<div class="ftog">+</div></div><div class="fa"><p>El proceso completo toma entre 3 y 4 semanas desde el diagnóstico inicial hasta el lanzamiento con todos los empleados. Tu equipo de RRHH no necesita dedicar más de 3 horas semanales — nosotros nos encargamos del resto.</p></div></div>
+        <div class="fi"><div class="fq" onclick="tF(this)">¿Cómo se mide el ROI del programa?<div class="ftog">+</div></div><div class="fa"><p>El dashboard incluye métricas de participación, NPS, reducción de ausentismo y productividad. El ROI promedio de nuestros clientes es de 3× la inversión en 6 meses. Generamos reportes mensuales listos para presentar a finanzas.</p></div></div>
+        <div class="fi"><div class="fq" onclick="tF(this)">¿Qué pasa con la privacidad de los datos?<div class="ftog">+</div></div><div class="fa"><p>Los datos individuales son 100% confidenciales. La empresa solo accede a métricas agregadas. Somos ISO 27001 certificados, cumplimos con las leyes de privacidad de cada país y toda la infraestructura corre en AWS con encriptación end-to-end.</p></div></div>
+        <div class="fi"><div class="fq" onclick="tF(this)">¿Funciona en múltiples países e idiomas?<div class="ftog">+</div></div><div class="fa"><p>Operamos en Chile, México, Argentina y Uruguay, con expansión a Colombia, Perú y Brasil en curso. La plataforma está disponible en español e inglés, con versión en portugués llegando en Q3 2026.</p></div></div>
+        <div class="fi"><div class="fq" onclick="tF(this)">¿Se integra con nuestros sistemas actuales?<div class="ftog">+</div></div><div class="fa"><p>Care Assistance se integra con Slack, Microsoft Teams, Workday, SAP SuccessFactors, BambooHR y los principales HRIS. También con Apple Health, Google Fit, Fitbit y Garmin. API abierta disponible para integraciones custom.</p></div></div>
+        <div class="fi"><div class="fq" onclick="tF(this)">¿Qué pasa si la participación es baja?<div class="ftog">+</div></div><div class="fa"><p>Incluimos campaña de comunicación interna completa diseñada para maximizar el lanzamiento. Si al mes 2 la participación está por debajo del 40%, activamos nuestro protocolo de re-engagement sin costo adicional.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ██ CTA FINAL ██ -->
+<section id="ctaf">
+  <div class="ctaf-bg"></div>
+  <div class="ctaf-grid"></div>
+  <div class="w">
+    <div class="ctaf-inner">
+      <div class="ctaf-pill">
+        <div class="ctaf-pill-d"><span></span></div>
+        <span class="ctaf-pill-t">Empezá hoy · Sin compromiso</span>
+      </div>
+      <h2 class="h2" style="font-size:clamp(34px,5vw,64px)">
+        ¿Listo para hacer que<br/>cuente <em>tu equipo</em>?
+      </h2>
+      <p class="sub" style="margin:18px auto 0;max-width:520px">En 30 minutos te mostramos cómo Care Assistance puede transformar el bienestar de tu equipo, con datos reales de empresas similares a la tuya.</p>
+      <div class="ctaf-form">
+        <input type="text" class="ctaf-inp" placeholder="Tu nombre"/>
+        <input type="email" class="ctaf-inp" placeholder="Email corporativo"/>
+        <button class="btn-main" style="flex-shrink:0;font-size:14.5px;padding:13px 24px">
+          Quiero mi demo gratuita
+          <svg width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </button>
+      </div>
+      <p class="ctaf-note">Sin contratos. Sin tarjeta de crédito. <a href="https://www.careassistance.com/politicas-de-privacidad">Política de privacidad</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ██ FOOTER ██ -->
+<footer>
+  <div class="foot">
+    <div class="foot-top">
+      <div>
+        <div class="foot-logo">
+          <img src="https://cdn.prod.website-files.com/685e985042d1ef2e99055068/685ea742504c62ee68f9a8a7_Logo-CA_color.png" alt="Care Assistance"/>
+        </div>
+        <p class="foot-desc">Ecosistema pionero de bienestar corporativo en LATAM. Programas de alto impacto a través de tecnología, datos e inteligencia humana.</p>
+        <div class="foot-certs"><span class="fcert">ISO 27001</span><span class="fcert">ISO 9001</span></div>
+        <div class="foot-soc">
+          <a href="https://www.instagram.com/careassistancecv/" class="fsoc" target="_blank">ig</a>
+          <a href="https://www.linkedin.com/company/care-assistance/" class="fsoc" target="_blank">in</a>
+          <a href="https://www.facebook.com/careassistancecv/" class="fsoc" target="_blank">fb</a>
+          <a href="https://www.youtube.com/@careassistancecv/videos" class="fsoc" target="_blank">▶</a>
+        </div>
+      </div>
+      <div class="fc5"><h5>Plataforma</h5><ul>
+        <li><a href="#">App Móvil</a></li><li><a href="#">Panel RRHH</a></li>
+        <li><a href="#">IA & Personalización</a></li><li><a href="#">Wearables</a></li>
+        <li><a href="#">Integraciones</a></li><li><a href="#">Seguridad</a></li>
+      </ul></div>
+      <div class="fc5"><h5>Empresa</h5><ul>
+        <li><a href="https://www.careassistance.com/nosotros">Nosotros</a></li>
+        <li><a href="#">Casos de éxito</a></li>
+        <li><a href="https://www.careassistance.com/blog">Blog</a></li>
+        <li><a href="#">Prensa</a></li>
+        <li><a href="#">Trabaja con nosotros</a></li>
+      </ul></div>
+      <div class="fc5"><h5>Recursos</h5><ul>
+        <li><a href="#">Guías RRHH</a></li><li><a href="#">Webinars</a></li>
+        <li><a href="#">Calculadora ROI</a></li><li><a href="#">API Docs</a></li>
+        <li><a href="#">Centro de ayuda</a></li>
+      </ul></div>
+      <div class="fc5"><h5>Contacto</h5><ul>
+        <li><a href="mailto:contacto@careassistance.com">contacto@careassistance.com</a></li>
+        <li><a href="#">Nueva de Lyon 72 of.702</a></li>
+        <li><a href="#">Providencia, Chile</a></li>
+        <li><a href="#">México · Argentina · Uruguay</a></li>
+        <li><a href="#ctaf">Solicitar demo →</a></li>
+      </ul></div>
+    </div>
+    <div class="foot-bot">
+      <p class="fc">© 2026 Care Assistance · Todos los derechos reservados</p>
+      <div class="ffg">
+        <span class="ffl" title="Chile">🇨🇱</span>
+        <span class="ffl" title="México">🇲🇽</span>
+        <span class="ffl" title="Argentina">🇦🇷</span>
+        <span class="ffl" title="Uruguay">🇺🇾</span>
+      </div>
+      <div class="fls">
+        <a href="https://www.careassistance.com/politicas-de-privacidad">Privacidad</a>
+        <a href="https://www.careassistance.com/politicas-de-calidad">Calidad</a>
+        <a href="https://www.careassistance.com/politicas-de-cookies">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Progress bar
+const pb=document.getElementById('pb');
+window.addEventListener('scroll',()=>{const h=document.documentElement;pb.style.width=(window.scrollY/(h.scrollHeight-h.clientHeight)*100)+'%'});
+
+// Nav scroll
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('sc',window.scrollY>40));
+
+// Hamburger
+document.getElementById('hbtn').addEventListener('click',()=>document.getElementById('nl').classList.toggle('open'));
+document.querySelectorAll('#nl a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nl').classList.remove('open')));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+  const t=document.querySelector(a.getAttribute('href'));
+  if(t){e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-80,behavior:'smooth'})}
+}));
+
+// Reveal on scroll
+const ro=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')}),{threshold:.1});
+document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+
+// Counters
+function animN(el,target){
+  const pct=el.closest('.m-box').querySelector('.m-lbl').textContent.includes('%');
+  const s=performance.now(),d=2400;
+  const tick=()=>{const p=Math.min((performance.now()-s)/d,1),e=1-Math.pow(1-p,4);
+    el.textContent=(pct?'':'+')+Math.floor(e*target)+(pct?'%':'');if(p<1)requestAnimationFrame(tick)};
+  requestAnimationFrame(tick)
+}
+const co=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){
+  e.target.querySelectorAll('[data-count]').forEach(el=>animN(el,parseInt(el.dataset.count)));
+  co.unobserve(e.target)}})},{threshold:.3});
+const ms=document.getElementById('metrics');if(ms)co.observe(ms);
+
+// FAQ
+function tF(btn){const i=btn.closest('.fi');const o=i.classList.contains('op');document.querySelectorAll('.fi.op').forEach(x=>x.classList.remove('op'));if(!o)i.classList.add('op')}
+
+// Platform tabs
+function sTab(t){document.querySelectorAll('.ptab').forEach(x=>x.classList.remove('act'));t.classList.add('act')}
+
+// Tech particles
+(function(){
+  const c = document.getElementById('particles');
+  if(!c) return;
+  const colors = ['rgba(0,196,176,0.5)', 'rgba(255,107,53,0.4)', 'rgba(167,139,250,0.4)', 'rgba(96,165,250,0.3)'];
+  for(let i=0;i<18;i++){
+    const p = document.createElement('div');
+    const size = Math.random()*4+2;
+    const left = Math.random()*100;
+    const dur = Math.random()*12+8;
+    const delay = Math.random()*8;
+    p.className = 'particle';
+    p.style.cssText = `width:${size}px;height:${size}px;left:${left}%;bottom:-${size}px;background:${colors[Math.floor(Math.random()*colors.length)]};animation-duration:${dur}s;animation-delay:${delay}s;box-shadow:0 0 ${size*2}px ${colors[Math.floor(Math.random()*colors.length)]}`;
+    c.appendChild(p);
+  }
+})();
+
+</script>
+</body>
+</html>
